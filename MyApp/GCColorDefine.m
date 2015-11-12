@@ -7,7 +7,7 @@
 //
 
 #import "GCColorDefine.h"
-
+#import "GCMyUtility.h"
 
 #define LONG2STR(x) [NSString stringWithFormat:@"%ld", (x)]
 
@@ -25,20 +25,9 @@
 	
 	[encoder encodeInteger:_blue forKey:COLOR_BLUE];
 	
-	NSString* createAt = [self pd_yyyyMMddHHmmssString:_created_at];
+	NSString* createAt = [GCMyUtility strFromeDate:_created_at];
 	
 	[encoder encodeObject:createAt forKey:COLOR_CREATE];
-}
-
-- (NSDate*)pd_yyyyMMddHHmmssDate:(NSString*)str {
-	
-	NSDateFormatter	*formatter =[[NSDateFormatter alloc] init];
-	
-	[formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-	
-	NSDate *aDate = [formatter dateFromString:str];
-	
-	return aDate;
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
@@ -55,7 +44,7 @@
 	
 	NSString* createAt = [decoder decodeObjectForKey:COLOR_CREATE];
 	
-	_created_at = [self pd_yyyyMMddHHmmssDate:createAt];
+	_created_at = [GCMyUtility dateFromeStr:createAt];
 	
 	return self;
 }
@@ -79,19 +68,9 @@
 	return data;
 }
 
-- (NSString*) pd_yyyyMMddHHmmssString:(NSDate*)date {
-	
-	NSDateFormatter		*formatter = [[NSDateFormatter alloc] init];
-	[formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-	
-	NSString *str;
-	str = [formatter stringFromDate:date];
-	return str;
-}
-
 - (NSString*)createTime {
 	
-	return [self pd_yyyyMMddHHmmssString:_created_at];
+	return [GCMyUtility strFromeDate:_created_at];
 }
 
 - (NSDictionary*)dicFromObject {
@@ -108,7 +87,7 @@
 	
 	[dic setObject:LONG2STR((long)_blue) forKey:COLOR_BLUE];
 	
-	NSString* str = [self pd_yyyyMMddHHmmssString:_created_at];
+	NSString* str = [GCMyUtility strFromeDate:_created_at];
 	
 	[dic setObject:str forKey:COLOR_CREATE];
 	
@@ -129,7 +108,7 @@
 	
 	NSString* str = [dic objectForKey:COLOR_CREATE];
 	
-	_created_at = [self pd_yyyyMMddHHmmssDate:str];
+	_created_at = [GCMyUtility dateFromeStr:str];
 	
 	return self;
 }

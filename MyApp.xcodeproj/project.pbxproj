@@ -25,6 +25,7 @@
 		CE9C0B4A1BF483E900AA90B8 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9C0B491BF483E900AA90B8 /* libsqlite3.0.tbd */; };
 		CE9C0B721BF4A73300AA90B8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE9C0B711BF4A73300AA90B8 /* Images.xcassets */; };
 		CE9C0B741BF4B85300AA90B8 /* GCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C0B731BF4B85300AA90B8 /* GCAlertView.m */; };
+		CE9C0B781BF4CE6D00AA90B8 /* GCMyUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C0B771BF4CE6D00AA90B8 /* GCMyUtility.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,8 @@
 		CE9C0B711BF4A73300AA90B8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CE9C0B731BF4B85300AA90B8 /* GCAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCAlertView.m; path = ../GCAlertView.m; sourceTree = "<group>"; };
 		CE9C0B751BF4B85C00AA90B8 /* GCAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GCAlertView.h; path = ../GCAlertView.h; sourceTree = "<group>"; };
+		CE9C0B761BF4CE6D00AA90B8 /* GCMyUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMyUtility.h; sourceTree = "<group>"; };
+		CE9C0B771BF4CE6D00AA90B8 /* GCMyUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMyUtility.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +121,8 @@
 				CE9C0B461BF466C000AA90B8 /* GCStoreSystemMgr.h */,
 				CE9C0B471BF466C000AA90B8 /* GCStoreSystemMgr.m */,
 				CE9C0B711BF4A73300AA90B8 /* Images.xcassets */,
+				CE9C0B761BF4CE6D00AA90B8 /* GCMyUtility.h */,
+				CE9C0B771BF4CE6D00AA90B8 /* GCMyUtility.m */,
 			);
 			path = MyApp;
 			sourceTree = "<group>";
@@ -210,6 +215,7 @@
 				CE9C0B071BF433BD00AA90B8 /* GCColorListVCTL.m in Sources */,
 				CE9C0AEF1BF432EE00AA90B8 /* main.m in Sources */,
 				CE9C0B451BF4416B00AA90B8 /* GCColorDataMgr.m in Sources */,
+				CE9C0B781BF4CE6D00AA90B8 /* GCMyUtility.m in Sources */,
 				CE9C0B421BF4410B00AA90B8 /* GCColorDefine.m in Sources */,
 				CE9C0B0A1BF4340F00AA90B8 /* GCColorEditVCTL.m in Sources */,
 				CE9C0B741BF4B85300AA90B8 /* GCAlertView.m in Sources */,

@@ -9,6 +9,7 @@
 #import "GCStoreSystemMgr.h"
 #import "GCColorDataMgr.h"
 #import "sqlite3.h"
+#import "GCMyUtility.h"
 
 static GCStoreSystemMgr* _instance;
 
@@ -109,10 +110,10 @@ static GCStoreSystemMgr* _instance;
 		ID INTEGER PRIMARY KEY AUTOINCREMENT, \
 		COLORID INTEGER,\
 		NAME TEXT, \
+		CREATEAT TEXT,\
 		RED INTEGER,\
 		GREEN INTEGER,\
-		BLUE INTEGER,\
-		CREATEAT TEXT)";
+		BLUE INTEGER)";
 		
 		[self execSql:createsql];
 	}
@@ -121,6 +122,8 @@ static GCStoreSystemMgr* _instance;
 - (int)execSql:(NSString*)sql {
 	
 	char *errorMsg;
+	
+	const char* sqlstr = [sql UTF8String];
 	
 	int result = sqlite3_exec(dataBase, [sql UTF8String], NULL, NULL, &errorMsg);
 	
@@ -138,11 +141,13 @@ static GCStoreSystemMgr* _instance;
 
 - (void)saveToDB:(GCColorData*)data {
 	
-	NSString *updateSql = [NSString stringWithFormat:@"UPDATE colorInfo SET NAME='%@' RED=%d GREEN=%d BLUE=%d CREATEAT='%@' WHERE COLORID=%d", data.strName, (int)data.red, (int)data.green, (int)data.blue, [data createTime], (int)data.colorId];
+	NSString* time = [data createTime];
+	
+	NSString *updateSql = [NSString stringWithFormat:@"UPDATE colorInfo SET NAME = '%@' CREATEAT = '%@' RED = %d GREEN = %d BLUE = %d WHERE COLORID = %d", data.strName, time, (int)data.red, (int)data.green, (int)data.blue, (int)data.colorId];
 	
 	if ([self execSql:updateSql] != SQLITE_OK) {
 		
-		NSString *insertSql = [NSString stringWithFormat:@"INSERT INTO colorInfo(COLORID,NAME,RED,GREEN,BLUE,CREATEAT) VALUES(%d,'%@',%d,%d,%d,'%@')", (int)data.colorId, data.strName, (int)data.red, (int)data.green, (int)data.blue,[data createTime]];
+		NSString *insertSql = [NSString stringWithFormat:@"INSERT INTO colorInfo (COLORID,NAME,CREATEAT,RED,GREEN,BLUE) VALUES(%d, '%@', '%@', %d, %d, %d)", (int)data.colorId, data.strName, time, (int)data.red, (int)data.green, (int)data.blue];
 		
 		[self execSql:insertSql];
 	}
@@ -172,11 +177,17 @@ static GCStoreSystemMgr* _instance;
 			
 			data.strName = [[NSString alloc] initWithUTF8String:name];
 			
-			data.red = sqlite3_column_int(info, 3);
+			char *createat = (char *)sqlite3_column_text(info, 3);
 			
-			data.green = sqlite3_column_int(info, 4);
+			NSString* strCreateat = [[NSString alloc] initWithUTF8String:createat];
 			
-			data.blue = sqlite3_column_int(info, 5);
+			data.created_at = [GCMyUtility dateFromeStr:strCreateat];
+			
+			data.red = sqlite3_column_int(info, 4);
+			
+			data.green = sqlite3_column_int(info, 5);
+			
+			data.blue = sqlite3_column_int(info, 6);
 			
 			[dataArray addObject:data];
 		}
