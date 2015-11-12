@@ -68,7 +68,7 @@ static GCColorDataMgr* _instance;
 	}
 }
 
-- (void)sort {
+- (void)sort:(NSArray*)array {
 	
 	NSComparator cmptr = ^(id obj1, id obj2){
 		
@@ -84,20 +84,18 @@ static GCColorDataMgr* _instance;
 		return (NSComparisonResult)NSOrderedAscending;
 	};
 	
-	NSArray *array = [_colorDataSource sortedArrayUsingComparator:cmptr];
+	NSArray *tempArray = [array sortedArrayUsingComparator:cmptr];
 	
 	[_colorDataSource removeAllObjects];
 	
-	[_colorDataSource addObjectsFromArray:array];
+	[_colorDataSource addObjectsFromArray:tempArray];
 }
 
 - (BOOL)loadData {
 	
-	[_colorDataSource removeAllObjects];
+	NSArray* array = [[NSArray alloc] initWithArray:[[GCStoreSystemMgr sharedInstance] retriveData:_dataStoreType]];
 	
-	[_colorDataSource addObjectsFromArray:[[GCStoreSystemMgr sharedInstance] retriveData:_dataStoreType]];
-	
-	[self sort];
+	[self sort:array];
 	
 	if (_colorDataSource.count == 0) {
 		

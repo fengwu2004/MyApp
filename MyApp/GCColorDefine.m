@@ -25,17 +25,17 @@
 	
 	[encoder encodeInteger:_blue forKey:COLOR_BLUE];
 	
-	NSString* createAt = [self pd_yyyyMMddHHmmString:_created_at];
+	NSString* createAt = [self pd_yyyyMMddHHmmssString:_created_at];
 	
 	[encoder encodeObject:createAt forKey:COLOR_CREATE];
 }
 
-- (NSDate*)pd_yyyyMMddhhmmDate:(NSString*)str {
+- (NSDate*)pd_yyyyMMddHHmmssDate:(NSString*)str {
 	
 	NSDateFormatter	*formatter =[[NSDateFormatter alloc] init];
 	
-	[formatter setDateFormat:@"yyyyMMddHHmm"];
-
+	[formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+	
 	NSDate *aDate = [formatter dateFromString:str];
 	
 	return aDate;
@@ -55,7 +55,7 @@
 	
 	NSString* createAt = [decoder decodeObjectForKey:COLOR_CREATE];
 	
-	_created_at = [self pd_yyyyMMddhhmmDate:createAt];
+	_created_at = [self pd_yyyyMMddHHmmssDate:createAt];
 	
 	return self;
 }
@@ -79,20 +79,19 @@
 	return data;
 }
 
-- (NSString*)pd_yyyyMMddHHmmString:(NSDate*)date {
+- (NSString*) pd_yyyyMMddHHmmssString:(NSDate*)date {
 	
-	NSDateFormatter	*formatter = [[NSDateFormatter alloc] init];
+	NSDateFormatter		*formatter = [[NSDateFormatter alloc] init];
+	[formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
 	
-	[formatter setDateFormat:@"yyyy-MM-dd HH:mm"];
-	
-	NSString *str = [formatter stringFromDate:date];
-	
+	NSString *str;
+	str = [formatter stringFromDate:date];
 	return str;
 }
 
 - (NSString*)createTime {
 	
-	return [self pd_yyyyMMddHHmmString:_created_at];
+	return [self pd_yyyyMMddHHmmssString:_created_at];
 }
 
 - (NSDictionary*)dicFromObject {
@@ -109,7 +108,7 @@
 	
 	[dic setObject:LONG2STR((long)_blue) forKey:COLOR_BLUE];
 	
-	NSString* str = [self pd_yyyyMMddHHmmString:_created_at];
+	NSString* str = [self pd_yyyyMMddHHmmssString:_created_at];
 	
 	[dic setObject:str forKey:COLOR_CREATE];
 	
@@ -130,7 +129,7 @@
 	
 	NSString* str = [dic objectForKey:COLOR_CREATE];
 	
-	_created_at = [self pd_yyyyMMddhhmmDate:str];
+	_created_at = [self pd_yyyyMMddHHmmssDate:str];
 	
 	return self;
 }
