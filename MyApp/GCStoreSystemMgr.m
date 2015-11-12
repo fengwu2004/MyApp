@@ -47,10 +47,10 @@ static GCStoreSystemMgr* _instance;
 	return filePath;
 }
 
-- (NSArray*)retriveData:(GCColorStoreType)type {
+- (NSArray*)retriveData:(GCStoreType)type {
 	
 	switch (type) {
-  case GCColorStoreType_encode:
+  case GCStoreType_encode:
 		{
 			NSData *data = [[NSMutableData alloc] initWithContentsOfFile:[self fileName2docFilePath:@"appData"]];
 			
@@ -61,7 +61,7 @@ static GCStoreSystemMgr* _instance;
 			return (NSArray*)obj;
 		}
 			break;
-	case GCColorStoreType_plist:
+	case GCStoreType_plist:
 		{
 			NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
 			
@@ -81,7 +81,7 @@ static GCStoreSystemMgr* _instance;
 			return dataArray;
 		}
 			break;
-	case GCColorStoreType_sqlite:
+	case GCStoreType_sqlite:
 		{
 			return [self queryAllData];
 		}
@@ -186,13 +186,13 @@ static GCStoreSystemMgr* _instance;
 	return dataArray;
 }
 
-- (void)saveData:(GCColorData*)obj byStore:(GCColorStoreType)type {
+- (void)saveData:(GCColorData*)obj byStore:(GCStoreType)type {
 	
 	NSArray* dataArray = [[GCColorDataMgr sharedInstance] getColorData];
 	
 	switch (type) {
 			
-  case GCColorStoreType_encode:
+  case GCStoreType_encode:
 		{
 			NSMutableData *data = [[NSMutableData alloc] init];
 			
@@ -205,7 +205,7 @@ static GCStoreSystemMgr* _instance;
 			[data writeToFile:[self fileName2docFilePath:@"appData"] atomically:YES];
 		}
 			break;
-	case GCColorStoreType_plist:
+	case GCStoreType_plist:
 		{
 			NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
 			
@@ -233,7 +233,7 @@ static GCStoreSystemMgr* _instance;
 			}
 		}
 			break;
-	case GCColorStoreType_sqlite:
+	case GCStoreType_sqlite:
 		{
 			[self openDB];
 			
@@ -245,9 +245,9 @@ static GCStoreSystemMgr* _instance;
 	}
 }
 
-- (void)removeColor:(NSInteger)colorId withStoreType:(GCColorStoreType)storeType {
+- (void)removeColor:(NSInteger)colorId withStoreType:(GCStoreType)storeType {
 	
-	if (storeType != GCColorStoreType_sqlite) {
+	if (storeType != GCStoreType_sqlite) {
 		
 		[self saveData:nil byStore:storeType];
 		

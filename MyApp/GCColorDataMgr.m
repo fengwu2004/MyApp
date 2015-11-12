@@ -63,7 +63,7 @@ static GCColorDataMgr* _instance;
 	[_colorDataSource addObjectsFromArray:[[GCStoreSystemMgr sharedInstance] retriveData:_dataStoreType]];
 }
 
-- (NSArray*)retriveColorData:(GCColorStoreType)type {
+- (NSArray*)retriveColorData:(GCStoreType)type {
 
 	_dataStoreType = type;
 	

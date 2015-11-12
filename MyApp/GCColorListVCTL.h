@@ -15,7 +15,7 @@
 @interface GCColorListVCTL : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, retain) IBOutlet UITableView* ibTableColor;
-@property (nonatomic, assign) GCColorStoreType storeType;
+@property (nonatomic, assign) GCStoreType storeType;
 
 @end
 

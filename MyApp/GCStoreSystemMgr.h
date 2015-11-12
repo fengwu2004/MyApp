@@ -13,10 +13,10 @@
 
 + (id)sharedInstance;
 
-- (void)saveData:(GCColorData*)obj byStore:(GCColorStoreType)type;
+- (void)saveData:(GCColorData*)obj byStore:(GCStoreType)type;
 
-- (void)removeColor:(NSInteger)colorId withStoreType:(GCColorStoreType)storeType;
+- (void)removeColor:(NSInteger)colorId withStoreType:(GCStoreType)storeType;
 
-- (NSArray*)retriveData:(GCColorStoreType)type;
+- (NSArray*)retriveData:(GCStoreType)type;
 
 @end

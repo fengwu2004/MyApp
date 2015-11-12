@@ -14,11 +14,11 @@
 #define COLOR_GREEN		@"green"
 #define COLOR_BLUE		@"blue"
 
-typedef NS_ENUM(NSUInteger, GCColorStoreType) {
+typedef NS_ENUM(NSUInteger, GCStoreType) {
 	
-	GCColorStoreType_encode,
-	GCColorStoreType_plist,
-	GCColorStoreType_sqlite,
+	GCStoreType_encode,
+	GCStoreType_plist,
+	GCStoreType_sqlite,
 };
 
 @interface GCColorData : NSObject<NSCoding>

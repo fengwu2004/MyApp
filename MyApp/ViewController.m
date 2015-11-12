@@ -43,7 +43,7 @@
 
 - (IBAction)objectStoreWithEncode:(id)sender {
 	
-	[[GCColorDataMgr sharedInstance] setDataStoreType:GCColorStoreType_encode];
+	[[GCColorDataMgr sharedInstance] setDataStoreType:GCStoreType_encode];
 	
 	GCColorEditVCTL* vctl = [[GCColorEditVCTL alloc] init];
 	
@@ -54,7 +54,7 @@
 
 - (IBAction)objectStoreWithPlist:(id)sender {
 	
-	[[GCColorDataMgr sharedInstance] setDataStoreType:GCColorStoreType_plist];
+	[[GCColorDataMgr sharedInstance] setDataStoreType:GCStoreType_plist];
 	
 	GCColorEditVCTL* vctl = [[GCColorEditVCTL alloc] init];
 	
@@ -65,7 +65,7 @@
 
 - (IBAction)objectStoreWithSqlite:(id)sender {
 	
-	[[GCColorDataMgr sharedInstance] setDataStoreType:GCColorStoreType_sqlite];
+	[[GCColorDataMgr sharedInstance] setDataStoreType:GCStoreType_sqlite];
 	
 	GCColorEditVCTL* vctl = [[GCColorEditVCTL alloc] init];
 	
