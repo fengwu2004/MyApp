@@ -20,6 +20,12 @@
 @property (nonatomic, retain) IBOutlet UISlider* ibSliderGreen;
 @property (nonatomic, retain) IBOutlet UISlider* ibSliderBlue;
 
+@property (nonatomic, retain) IBOutlet UILabel* ibLabelRed;
+@property (nonatomic, retain) IBOutlet UILabel* ibLabelGreen;
+@property (nonatomic, retain) IBOutlet UILabel* ibLabelBlue;
+
+
+
 @property (nonatomic, assign) NSInteger colorId;
 
 - (IBAction)onRedColorChange:(id)sender;

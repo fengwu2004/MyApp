@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "GCColorDataMgr.h"
+#import "GCColorListVCTL.h"
 #import "GCColorEditVCTL.h"
 
 @interface ViewController ()
@@ -40,37 +41,41 @@
 	[self setButtnStytle:_ibBtnSqlite];
 }
 
-- (IBAction)objectStoreWithEncode:(id)sender {
+- (void)gotoNextPage:(GCStoreType)storeType {
 	
-	[[GCColorDataMgr sharedInstance] setDataStoreType:GCStoreType_encode];
+	[[GCColorDataMgr sharedInstance] setDataStoreType:storeType];
+	
+	BOOL loadSuccess = [[GCColorDataMgr sharedInstance] loadData];
+	
+	if (loadSuccess) {
+		
+		GCColorListVCTL* vctl = [[GCColorListVCTL alloc] init];
+		
+		[self.navigationController pushViewController:vctl animated:YES];
+		
+		return;
+	}
 	
 	GCColorEditVCTL* vctl = [[GCColorEditVCTL alloc] init];
 	
 	[vctl setColorId:-1];
 	
 	[self.navigationController pushViewController:vctl animated:YES];
+}
+
+- (IBAction)objectStoreWithEncode:(id)sender {
+	
+	[self gotoNextPage:GCStoreType_encode];
 }
 
 - (IBAction)objectStoreWithPlist:(id)sender {
 	
-	[[GCColorDataMgr sharedInstance] setDataStoreType:GCStoreType_plist];
-	
-	GCColorEditVCTL* vctl = [[GCColorEditVCTL alloc] init];
-	
-	[vctl setColorId:-1];
-	
-	[self.navigationController pushViewController:vctl animated:YES];
+	[self gotoNextPage:GCStoreType_plist];
 }
 
 - (IBAction)objectStoreWithSqlite:(id)sender {
 	
-	[[GCColorDataMgr sharedInstance] setDataStoreType:GCStoreType_sqlite];
-	
-	GCColorEditVCTL* vctl = [[GCColorEditVCTL alloc] init];
-	
-	[vctl setColorId:-1];
-	
-	[self.navigationController pushViewController:vctl animated:YES];
+	[self gotoNextPage:GCStoreType_sqlite];
 }
 
 @end

@@ -29,4 +29,6 @@
 
 - (GCColorData*)createColor;
 
+- (BOOL)loadData;
+
 @end

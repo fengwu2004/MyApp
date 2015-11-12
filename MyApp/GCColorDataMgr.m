@@ -56,11 +56,18 @@ static GCColorDataMgr* _instance;
 	[_colorDataSource addObject:color];
 }
 
-- (void)loadData {
+- (BOOL)loadData {
 	
 	[_colorDataSource removeAllObjects];
 	
 	[_colorDataSource addObjectsFromArray:[[GCStoreSystemMgr sharedInstance] retriveData:_dataStoreType]];
+	
+	if (_colorDataSource.count == 0) {
+		
+		return NO;
+	}
+	
+	return YES;
 }
 
 - (NSArray*)retriveColorData {

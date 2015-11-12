@@ -89,6 +89,12 @@
 	[_ibSliderBlue setMaximumValue:255];
 	
 	[_ibSliderBlue setValue:_colorData.blue];
+	
+	[_ibLabelRed setText:[NSString stringWithFormat:@"%d", (int)_colorData.red]];
+	
+	[_ibLabelGreen setText:[NSString stringWithFormat:@"%d", (int)_colorData.green]];
+	
+	[_ibLabelBlue setText:[NSString stringWithFormat:@"%d", (int)_colorData.blue]];
 }
 
 - (void)onColorChange {
@@ -96,6 +102,12 @@
 	UIColor *color = [UIColor colorWithRed:_colorData.red/255.0 green:_colorData.green/255.0 blue:_colorData.blue/255.0 alpha:1];
 	
 	[_ibViewColor setBackgroundColor:color];
+	
+	[_ibLabelRed setText:[NSString stringWithFormat:@"%d", (int)_colorData.red]];
+	 
+	[_ibLabelGreen setText:[NSString stringWithFormat:@"%d", (int)_colorData.green]];
+	
+	[_ibLabelBlue setText:[NSString stringWithFormat:@"%d", (int)_colorData.blue]];
 }
 
 - (IBAction)onRedColorChange:(id)sender {
