@@ -16,14 +16,28 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad {
-	[super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+- (void)setButtnStytle:(UIButton*)btn {
+	
+	[btn.layer setCornerRadius:8.0]; //设置矩圆角半径
+	
+	[btn.layer setBorderWidth:1.0];   //边框宽度
+	
+	CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+	
+	CGColorRef colorref = CGColorCreate(colorSpace,(CGFloat[]){ 1, 0, 0, 1 });
+	
+	[btn.layer setBorderColor:colorref];//边框颜色
 }
 
-- (void)didReceiveMemoryWarning {
-	[super didReceiveMemoryWarning];
-	// Dispose of any resources that can be recreated.
+- (void)viewDidLoad {
+	
+	[super viewDidLoad];
+	
+	[self setButtnStytle:_ibBtnEncode];
+	
+	[self setButtnStytle:_ibBtnPlist];
+	
+	[self setButtnStytle:_ibBtnSqlite];
 }
 
 - (IBAction)objectStoreWithEncode:(id)sender {

@@ -10,6 +10,10 @@
 
 @interface ViewController : UIViewController
 
+@property (nonatomic, retain) IBOutlet UIButton* ibBtnEncode;
+@property (nonatomic, retain) IBOutlet UIButton* ibBtnPlist;
+@property (nonatomic, retain) IBOutlet UIButton* ibBtnSqlite;
+
 - (IBAction)objectStoreWithEncode:(id)sender;
 
 - (IBAction)objectStoreWithPlist:(id)sender;
