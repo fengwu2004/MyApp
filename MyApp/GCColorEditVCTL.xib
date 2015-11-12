@@ -35,7 +35,6 @@
                     </subviews>
                     <color key="backgroundColor" red="1" green="0.3052618279" blue="0.64045235410000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="358" id="msV-gh-8Te"/>
                         <constraint firstAttribute="trailing" secondItem="6N3-uu-dM9" secondAttribute="trailing" constant="140" id="t4K-WI-OHj"/>
                     </constraints>
                 </view>
@@ -97,6 +96,7 @@
                 <constraint firstAttribute="trailing" secondItem="rXY-Y3-SaC" secondAttribute="trailing" constant="81" id="GVw-dA-DTL"/>
                 <constraint firstItem="YWg-SO-fPh" firstAttribute="centerY" secondItem="6Z8-lm-eBN" secondAttribute="centerY" id="PDE-uV-1Px"/>
                 <constraint firstItem="jul-b7-7sR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="PHg-ee-yew"/>
+                <constraint firstAttribute="bottom" secondItem="6Z8-lm-eBN" secondAttribute="bottom" constant="58" id="Tfh-Pm-pIw"/>
                 <constraint firstAttribute="trailing" secondItem="tJR-pB-1GT" secondAttribute="trailing" constant="81" id="YnC-zI-QcK"/>
                 <constraint firstItem="6nW-Ph-JZp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="46" id="Yqd-vM-J7g"/>
                 <constraint firstItem="tJR-pB-1GT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="80" id="atA-ZA-STj"/>

@@ -14,7 +14,7 @@
 @interface GCColorEditVCTL()<UITextFieldDelegate>
 
 @property (nonatomic, retain)GCColorData* colorData;
-@property (nonatomic, assign) BOOL isCreateNew;
+
 
 @end
 
@@ -38,7 +38,7 @@
 
 - (void)setTitleBar {
 	
-	if (_isCreateNew) {
+	if (_colorId == -1) {
 		
 		[self setTitle:@"创建新颜色"];
 	}
@@ -52,8 +52,26 @@
 	self.navigationItem.rightBarButtonItem = item;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
+- (void)refreshData {
 
+	GCColorData* data = [[GCColorDataMgr sharedInstance] findColorById:_colorId];
+	
+	if (data) {
+		
+		_colorData = [data copy];
+	}
+	else {
+		
+		_colorData = [[GCColorDataMgr sharedInstance] createColor];
+		
+		_colorId = _colorData.colorId;
+	}
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+	
+	[self refreshData];
+	
 	[_ibColorName setText:_colorData.strName];
 	
 	UIColor *color = [UIColor colorWithRed:_colorData.red/255.0 green:_colorData.green/255.0 blue:_colorData.blue/255.0 alpha:1];
@@ -126,24 +144,11 @@
 	[self.navigationController pushViewController:vctl animated:YES];
 }
 
-- (void)setColorId:(NSInteger)colorId {
+- (void)viewDidDisappear:(BOOL)animated {
 	
-	_colorId = colorId;
+	[super viewDidDisappear:animated];
 	
-	GCColorData* data = [[GCColorDataMgr sharedInstance] findColorById:colorId];
-	
-	if (data) {
-		
-		_isCreateNew = NO;
-		
-		_colorData = [data copy];
-	}
-	else {
-		
-		_isCreateNew = YES;
-		
-		_colorData = [[GCColorDataMgr sharedInstance] createColor];
-	}
+	_colorId = -1;
 }
 
 @end

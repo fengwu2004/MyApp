@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "GCColorListVCTL.h"
 #import "GCColorDataMgr.h"
 #import "GCColorEditVCTL.h"
 
