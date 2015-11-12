@@ -149,7 +149,7 @@
 	
 	_colorData.strName = _ibColorName.text;
 	
-	_colorData.created_at = [NSDate date];
+	_colorData.createTime = [[NSDate date] timeIntervalSince1970];
 	
 	[[GCColorDataMgr sharedInstance] addOrReplace:_colorData];
 	

@@ -29,9 +29,7 @@ typedef NS_ENUM(NSUInteger, GCStoreType) {
 @property (nonatomic, assign) NSInteger red;
 @property (nonatomic, assign) NSInteger green;
 @property (nonatomic, assign) NSInteger blue;
-@property (nonatomic, retain) NSDate *created_at;
-
-- (NSString*)createTime;
+@property (nonatomic, assign) NSInteger createTime;
 
 - (NSDictionary*)dicFromObject;
 

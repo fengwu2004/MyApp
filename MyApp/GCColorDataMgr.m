@@ -76,7 +76,7 @@ static GCColorDataMgr* _instance;
 		
 		GCColorData* data2 = (GCColorData*)obj2;
 		
-		if ([self pd_isEarlierFrom:data1.created_at toDate:data2.created_at]) {
+		if (data1.createTime > data2.createTime) {
 			
 			return (NSComparisonResult)NSOrderedDescending;
 		}
@@ -126,7 +126,7 @@ static GCColorDataMgr* _instance;
 		
 		data.blue = color.blue;
 		
-		data.created_at = color.created_at;
+		data.createTime = color.createTime;
 	}
 	else {
 		

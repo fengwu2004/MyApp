@@ -107,10 +107,10 @@ static GCStoreSystemMgr* _instance;
 	if (sqlite3_open(dbpath, &dataBase) == SQLITE_OK) {
 		
 		NSString *createsql = @"CREATE TABLE IF NOT EXISTS colorInfo (\
-		ID INTEGER PRIMARY KEY AUTOINCREMENT, \
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,\
 		COLORID INTEGER,\
-		NAME TEXT, \
-		CREATEAT TEXT,\
+		NAME TEXT,\
+		CREATEAT INTEGER,\
 		RED INTEGER,\
 		GREEN INTEGER,\
 		BLUE INTEGER)";
@@ -122,8 +122,6 @@ static GCStoreSystemMgr* _instance;
 - (int)execSql:(NSString*)sql {
 	
 	char *errorMsg;
-	
-	const char* sqlstr = [sql UTF8String];
 	
 	int result = sqlite3_exec(dataBase, [sql UTF8String], NULL, NULL, &errorMsg);
 	
@@ -141,13 +139,11 @@ static GCStoreSystemMgr* _instance;
 
 - (void)saveToDB:(GCColorData*)data {
 	
-	NSString* time = [data createTime];
-	
-	NSString *updateSql = [NSString stringWithFormat:@"UPDATE colorInfo SET NAME = '%@' CREATEAT = '%@' RED = %d GREEN = %d BLUE = %d WHERE COLORID = %d", data.strName, time, (int)data.red, (int)data.green, (int)data.blue, (int)data.colorId];
+	NSString *updateSql = [NSString stringWithFormat:@"UPDATE colorInfo SET NAME = '%@', CREATEAT = %d, RED = %d, GREEN = %d, BLUE = %d WHERE COLORID = %d", data.strName, (int)data.createTime, (int)data.red, (int)data.green, (int)data.blue, (int)data.colorId];
 	
 	if ([self execSql:updateSql] != SQLITE_OK) {
 		
-		NSString *insertSql = [NSString stringWithFormat:@"INSERT INTO colorInfo (COLORID,NAME,CREATEAT,RED,GREEN,BLUE) VALUES(%d, '%@', '%@', %d, %d, %d)", (int)data.colorId, data.strName, time, (int)data.red, (int)data.green, (int)data.blue];
+		NSString *insertSql = [NSString stringWithFormat:@"INSERT INTO colorInfo (COLORID,NAME,CREATEAT,RED,GREEN,BLUE) VALUES(%d, '%@', %d, %d, %d, %d)", (int)data.colorId, data.strName, (int)data.createTime, (int)data.red, (int)data.green, (int)data.blue];
 		
 		[self execSql:insertSql];
 	}
@@ -177,11 +173,7 @@ static GCStoreSystemMgr* _instance;
 			
 			data.strName = [[NSString alloc] initWithUTF8String:name];
 			
-			char *createat = (char *)sqlite3_column_text(info, 3);
-			
-			NSString* strCreateat = [[NSString alloc] initWithUTF8String:createat];
-			
-			data.created_at = [GCMyUtility dateFromeStr:strCreateat];
+			data.createTime = sqlite3_column_int(info, 3);
 			
 			data.red = sqlite3_column_int(info, 4);
 			

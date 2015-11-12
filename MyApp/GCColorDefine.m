@@ -25,9 +25,7 @@
 	
 	[encoder encodeInteger:_blue forKey:COLOR_BLUE];
 	
-	NSString* createAt = [GCMyUtility strFromeDate:_created_at];
-	
-	[encoder encodeObject:createAt forKey:COLOR_CREATE];
+	[encoder encodeInteger:_createTime forKey:COLOR_CREATE];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
@@ -42,9 +40,7 @@
 	
 	_blue = [decoder decodeIntegerForKey:COLOR_BLUE];
 	
-	NSString* createAt = [decoder decodeObjectForKey:COLOR_CREATE];
-	
-	_created_at = [GCMyUtility dateFromeStr:createAt];
+	_createTime = [decoder decodeIntegerForKey:COLOR_CREATE];
 	
 	return self;
 }
@@ -63,14 +59,9 @@
 	
 	data.blue = _blue;
 	
-	data.created_at = [_created_at copy];
+	data.createTime = _createTime;
 	
 	return data;
-}
-
-- (NSString*)createTime {
-	
-	return [GCMyUtility strFromeDate:_created_at];
 }
 
 - (NSDictionary*)dicFromObject {
@@ -87,9 +78,7 @@
 	
 	[dic setObject:LONG2STR((long)_blue) forKey:COLOR_BLUE];
 	
-	NSString* str = [GCMyUtility strFromeDate:_created_at];
-	
-	[dic setObject:str forKey:COLOR_CREATE];
+	[dic setObject:LONG2STR((long)_createTime) forKey:COLOR_CREATE];
 	
 	return dic;
 }
@@ -106,9 +95,7 @@
 	
 	_blue = [[dic objectForKey:COLOR_BLUE] integerValue];
 	
-	NSString* str = [dic objectForKey:COLOR_CREATE];
-	
-	_created_at = [GCMyUtility dateFromeStr:str];
+	_createTime = [[dic objectForKey:COLOR_CREATE] integerValue];
 	
 	return self;
 }
