@@ -42,6 +42,8 @@
 	
 	GCColorEditVCTL* vctl = [[GCColorEditVCTL alloc] init];
 	
+	[vctl setIsCreateNew:YES];
+	
 	[self.navigationController pushViewController:vctl animated:YES];
 }
 
@@ -57,6 +59,8 @@
 	[_dataSource removeAllObjects];
 	
 	[_dataSource addObjectsFromArray:[[GCColorDataMgr sharedInstance] retriveColorData:_storeType]];
+	
+	[_ibTableColor reloadData];
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

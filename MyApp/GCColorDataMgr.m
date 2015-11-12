@@ -7,13 +7,14 @@
 //
 
 #import "GCColorDataMgr.h"
-
+#import "GCStoreSystemMgr.h"
 
 static GCColorDataMgr* _instance;
 
 @interface GCColorDataMgr()
 
 @property (nonatomic, retain) NSMutableArray* colorDataSource;
+@property (nonatomic, assign) GCColorStoreType dataStoreType;
 
 @end
 
@@ -36,8 +37,6 @@ static GCColorDataMgr* _instance;
 	if (self) {
 		
 		_colorDataSource = [[NSMutableArray alloc] init];
-		
-		[self test];
 	}
 	
 	return self;
@@ -69,6 +68,20 @@ static GCColorDataMgr* _instance;
 		
 		[_colorDataSource addObject:color];
 	}
+	
+	[[GCStoreSystemMgr sharedInstance] saveData:self byStore:_dataStoreType];
+}
+
+- (void)setColorData:(NSObject*)obj {
+	
+	[_colorDataSource removeAllObjects];
+	
+	[_colorDataSource addObjectsFromArray:(NSArray*)obj];
+}
+
+- (NSObject*)getColorData {
+	
+	return _colorDataSource;
 }
 
 @end

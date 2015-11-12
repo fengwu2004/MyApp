@@ -17,4 +17,8 @@
 
 - (void)saveColor:(GCColorData*)color new:(BOOL)isNewColor;
 
+- (void)setColorData:(NSObject*)obj;
+
+- (NSObject*)getColorData;
+
 @end

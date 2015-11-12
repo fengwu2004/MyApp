@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+#define COLOR_NAME		@"colorname"
+#define COLOR_RED			@"red"
+#define COLOR_GREEN		@"green"
+#define COLOR_BLUE		@"blue"
+
 typedef NS_ENUM(NSUInteger, GCColorStoreType) {
 	
 	GCColorStoreType_encode,
@@ -21,7 +26,7 @@ typedef NS_ENUM(NSUInteger, GCColorEditType) {
 	GCColorEditType_editCurrentColor,
 };
 
-@interface GCColorData : NSObject
+@interface GCColorData : NSObject<NSCoding>
 
 @property (nonatomic, copy) NSString* strName;
 @property (nonatomic, assign) NSInteger red;

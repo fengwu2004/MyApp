@@ -21,6 +21,7 @@
 		CE9C0B111BF436D500AA90B8 /* GCColorListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C0B101BF436D500AA90B8 /* GCColorListCell.m */; };
 		CE9C0B421BF4410B00AA90B8 /* GCColorDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C0B411BF4410B00AA90B8 /* GCColorDefine.m */; };
 		CE9C0B451BF4416B00AA90B8 /* GCColorDataMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C0B441BF4416B00AA90B8 /* GCColorDataMgr.m */; };
+		CE9C0B481BF466C000AA90B8 /* GCStoreSystemMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C0B471BF466C000AA90B8 /* GCStoreSystemMgr.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,8 @@
 		CE9C0B411BF4410B00AA90B8 /* GCColorDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCColorDefine.m; sourceTree = "<group>"; };
 		CE9C0B431BF4416B00AA90B8 /* GCColorDataMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCColorDataMgr.h; sourceTree = "<group>"; };
 		CE9C0B441BF4416B00AA90B8 /* GCColorDataMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCColorDataMgr.m; sourceTree = "<group>"; };
+		CE9C0B461BF466C000AA90B8 /* GCStoreSystemMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCStoreSystemMgr.h; sourceTree = "<group>"; };
+		CE9C0B471BF466C000AA90B8 /* GCStoreSystemMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCStoreSystemMgr.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +104,8 @@
 				CE9C0B411BF4410B00AA90B8 /* GCColorDefine.m */,
 				CE9C0B431BF4416B00AA90B8 /* GCColorDataMgr.h */,
 				CE9C0B441BF4416B00AA90B8 /* GCColorDataMgr.m */,
+				CE9C0B461BF466C000AA90B8 /* GCStoreSystemMgr.h */,
+				CE9C0B471BF466C000AA90B8 /* GCStoreSystemMgr.m */,
 			);
 			path = MyApp;
 			sourceTree = "<group>";
@@ -195,6 +200,7 @@
 				CE9C0B421BF4410B00AA90B8 /* GCColorDefine.m in Sources */,
 				CE9C0B0A1BF4340F00AA90B8 /* GCColorEditVCTL.m in Sources */,
 				CE9C0B111BF436D500AA90B8 /* GCColorListCell.m in Sources */,
+				CE9C0B481BF466C000AA90B8 /* GCStoreSystemMgr.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -31,7 +31,10 @@
 	
 	[self setTitleBar];
 	
-	_colorData = [[GCColorData alloc] init];
+	if (_isCreateNew) {
+		
+		_colorData = [[GCColorData alloc] init];
+	}
 	
 	_ibColorName.keyboardAppearance = UIKeyboardAppearanceDefault;
 }
