@@ -31,11 +31,6 @@
 	
 	[self setTitleBar];
 	
-	if (_isCreateNew) {
-		
-		_colorData = [[GCColorData alloc] init];
-	}
-	
 	_ibColorName.keyboardAppearance = UIKeyboardAppearanceDefault;
 }
 
@@ -122,8 +117,27 @@
 	
 	_colorData.strName = _ibColorName.text;
 	
-	[[GCColorDataMgr sharedInstance] saveColor:_colorData new:_isCreateNew];
+	[[GCColorDataMgr sharedInstance] addOrReplace:_colorData];
 }
 
+- (void)setColorId:(NSInteger)colorId {
+	
+	_colorId = colorId;
+	
+	GCColorData* data = [[GCColorDataMgr sharedInstance] findColorById:colorId];
+	
+	if (data) {
+		
+		_isCreateNew = NO;
+		
+		_colorData = [data copy];
+	}
+	else {
+		
+		_isCreateNew = YES;
+		
+		_colorData = [[GCColorData alloc] init];
+	}
+}
 
 @end

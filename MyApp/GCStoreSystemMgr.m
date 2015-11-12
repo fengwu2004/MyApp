@@ -125,14 +125,12 @@ static GCStoreSystemMgr* _instance;
 	return result;
 }
 
-- (void)saveToDB:(NSArray*)dataArray {
+- (void)saveToDB:(GCColorData*)data {
 	
-	for (GCColorData* data in dataArray) {
-		
-		NSString *insertSql = [NSString stringWithFormat:@"INSERT OR REPLACE INTO colorInfo(NAME,RED,GREEN,BLUE) VALUES('%@',%d,%d,%d)", data.strName, (int)data.red, (int)data.green, (int)data.blue];
-		
-		[self execSql:insertSql];
-	}
+	NSString *insertSql = [NSString stringWithFormat:@"INSERT OR REPLACE INTO colorInfo(NAME,RED,GREEN,BLUE) VALUES('%@',%d,%d,%d)", data.strName, (int)data.red, (int)data.green, (int)data.blue];
+	
+	[self execSql:insertSql];
+
 	
 	sqlite3_close(dataBase);
 }
@@ -172,7 +170,7 @@ static GCStoreSystemMgr* _instance;
 	return dataArray;
 }
 
-- (void)saveData:(NSObject*)obj byStore:(GCColorStoreType)type {
+- (void)saveData:(GCColorData*)obj byStore:(GCColorStoreType)type {
 	
 	NSArray* dataArray = [[GCColorDataMgr sharedInstance] getColorData];
 	
@@ -223,12 +221,18 @@ static GCStoreSystemMgr* _instance;
 		{
 			[self openDB];
 			
-			[self saveToDB:(NSArray*)dataArray];
+			[self saveToDB:obj];
 		}
 			break;
   default:
 			break;
 	}
 }
+
+- (void)removeColor:(NSInteger)objId {
+	
+	
+}
+
 
 @end

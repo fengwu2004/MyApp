@@ -37,6 +37,21 @@
 	return self;
 }
 
+- (id)copyWithZone:(NSZone *)zone {
+	
+	GCColorData *data = [[[self class] allocWithZone:zone] init];
+	
+	data.strName = [_strName copyWithZone:zone];
+	
+	data.red = _red;
+	
+	data.green = _green;
+	
+	data.blue = _blue;
+	
+	return data;
+}
+
 - (NSDictionary*)dicFromObject {
 	
 	NSMutableDictionary* dic = [[NSMutableDictionary alloc] init];

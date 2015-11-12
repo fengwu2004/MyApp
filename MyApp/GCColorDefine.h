@@ -28,6 +28,7 @@ typedef NS_ENUM(NSUInteger, GCColorEditType) {
 
 @interface GCColorData : NSObject<NSCoding>
 
+@property (nonatomic, assign) NSInteger colorId;
 @property (nonatomic, copy) NSString* strName;
 @property (nonatomic, assign) NSInteger red;
 @property (nonatomic, assign) NSInteger green;

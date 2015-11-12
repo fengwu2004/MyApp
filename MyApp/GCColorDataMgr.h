@@ -19,10 +19,14 @@
 
 - (NSArray*)retriveColorData:(GCColorStoreType)type;
 
-- (void)saveColor:(GCColorData*)color new:(BOOL)isNewColor;
-
 - (void)setColorData:(NSObject*)obj;
 
 - (NSArray*)getColorData;
+
+- (GCColorData*)findColorById:(NSInteger)colorId;
+
+- (void)addOrReplace:(GCColorData*)color;
+
+- (void)removeColorById:(NSInteger)colorId;
 
 @end

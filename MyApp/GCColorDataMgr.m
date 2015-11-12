@@ -70,14 +70,40 @@ static GCColorDataMgr* _instance;
 	return _colorDataSource;
 }
 
-- (void)saveColor:(GCColorData*)color new:(BOOL)isNewColor {
+- (void)addOrReplace:(GCColorData*)color {
 	
-	if (isNewColor) {
+	GCColorData* data = [self findColorById:color.colorId];
+	
+	if (data) {
+		
+		data.strName = color.strName;
+		
+		data.red = color.red;
+		
+		data.green = color.green;
+		
+		data.blue = color.blue;
+	}
+	else {
+		
+		color.colorId = _colorDataSource.count;
 		
 		[_colorDataSource addObject:color];
 	}
 	
-	[[GCStoreSystemMgr sharedInstance] saveData:self byStore:_dataStoreType];
+	[[GCStoreSystemMgr sharedInstance] saveData:color byStore:_dataStoreType];
+}
+
+- (void)removeColorById:(NSInteger)colorId {
+	
+	GCColorData* color = [self findColorById:colorId];
+	
+	if (color) {
+		
+		[_colorDataSource removeObject:color];
+	}
+	
+	[[GCStoreSystemMgr sharedInstance] removeColor:color byStore:_dataStoreType];
 }
 
 - (void)setColorData:(NSObject*)obj {
@@ -90,6 +116,19 @@ static GCColorDataMgr* _instance;
 - (NSArray*)getColorData {
 	
 	return _colorDataSource;
+}
+
+- (GCColorData*)findColorById:(NSInteger)colorId {
+	
+	for (GCColorData* data in _colorDataSource) {
+		
+		if (data.colorId == colorId) {
+			
+			return data;
+		}
+	}
+	
+	return nil;
 }
 
 @end

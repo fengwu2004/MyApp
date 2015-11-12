@@ -77,6 +77,11 @@
 	return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+	
+	return 0.001;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	
 	return _dataSource.count;
@@ -84,7 +89,42 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 	
-	return 100;
+	return 150;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+	
+	return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+	
+	if (indexPath.row >= _dataSource.count) {
+		
+		return;
+	}
+	
+	GCColorData* data = _dataSource[indexPath.row];
+	
+	[[GCColorDataMgr sharedInstance] removeColorById:data.colorId];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
+	
+	if (indexPath.row >= _dataSource.count) {
+		
+		return;
+	}
+	
+	GCColorData* data = _dataSource[indexPath.row];
+	
+	GCColorEditVCTL* vctl = [[GCColorEditVCTL alloc] init];
+	
+	[vctl setColorId:data.colorId];
+	
+	[self.navigationController pushViewController:vctl animated:YES];
 }
 
 - (UITableViewCell *)cellByClassName:(NSString *)className inNib:(NSString *)nibName forTableView:(UITableView *)tableView {
