@@ -107,6 +107,7 @@ static GCStoreSystemMgr* _instance;
 		
 		NSString *createsql = @"CREATE TABLE IF NOT EXISTS colorInfo (\
 		ID INTEGER PRIMARY KEY AUTOINCREMENT, \
+		COLORID INTEGER,\
 		NAME TEXT, \
 		RED INTEGER,\
 		GREEN INTEGER,\
@@ -125,13 +126,26 @@ static GCStoreSystemMgr* _instance;
 	return result;
 }
 
+- (void)removeFromDB:(NSInteger)colorId {
+	
+	[self openDB];
+	
+	NSString *deleteSql = [NSString stringWithFormat:@"DELETE FROM colorInfo WHERE COLORID=%d", (int)colorId];
+	
+	[self execSql:deleteSql];
+}
+
 - (void)saveToDB:(GCColorData*)data {
 	
-	NSString *insertSql = [NSString stringWithFormat:@"INSERT OR REPLACE INTO colorInfo(NAME,RED,GREEN,BLUE) VALUES('%@',%d,%d,%d)", data.strName, (int)data.red, (int)data.green, (int)data.blue];
+	NSString *updateSql = [NSString stringWithFormat:@"UPDATE colorInfo SET NAME='%@' RED=%d GREEN=%d BLUE=%d WHERE COLORID=%d", data.strName, (int)data.red, (int)data.green, (int)data.blue, (int)data.colorId];
 	
-	[self execSql:insertSql];
+	if ([self execSql:updateSql] != SQLITE_OK) {
+		
+		NSString *insertSql = [NSString stringWithFormat:@"INSERT INTO colorInfo(NAME,COLORID,RED,GREEN,BLUE) VALUES(%d,'%@',%d,%d,%d)", (int)data.colorId, data.strName, (int)data.red, (int)data.green, (int)data.blue];
+		
+		[self execSql:insertSql];
+	}
 
-	
 	sqlite3_close(dataBase);
 }
 
@@ -229,10 +243,15 @@ static GCStoreSystemMgr* _instance;
 	}
 }
 
-- (void)removeColor:(NSInteger)objId {
+- (void)removeColor:(NSInteger)colorId withStoreType:(GCColorStoreType)storeType {
 	
+	if (storeType != GCColorStoreType_sqlite) {
+		
+		[self saveData:nil byStore:storeType];
+		
+		return;
+	}
 	
+	[self removeFromDB:colorId];
 }
-
-
 @end

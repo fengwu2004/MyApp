@@ -15,7 +15,7 @@
 
 - (void)saveData:(GCColorData*)obj byStore:(GCColorStoreType)type;
 
-- (void)removeData:(NSInteger)objId;
+- (void)removeColor:(NSInteger)colorId withStoreType:(GCColorStoreType)storeType;
 
 - (NSArray*)retriveData:(GCColorStoreType)type;
 

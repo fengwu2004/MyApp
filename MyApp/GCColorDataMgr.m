@@ -98,12 +98,14 @@ static GCColorDataMgr* _instance;
 	
 	GCColorData* color = [self findColorById:colorId];
 	
-	if (color) {
+	if (!color) {
 		
-		[_colorDataSource removeObject:color];
+		return;
 	}
 	
-	[[GCStoreSystemMgr sharedInstance] removeColor:color byStore:_dataStoreType];
+	[_colorDataSource removeObject:color];
+	
+	[[GCStoreSystemMgr sharedInstance] removeColor:colorId withStoreType:_dataStoreType];
 }
 
 - (void)setColorData:(NSObject*)obj {
