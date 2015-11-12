@@ -15,6 +15,12 @@ typedef NS_ENUM(NSUInteger, GCColorStoreType) {
 	GCColorStoreType_sqlite,
 };
 
+typedef NS_ENUM(NSUInteger, GCColorEditType) {
+	
+	GCColorEditType_createNewColor,
+	GCColorEditType_editCurrentColor,
+};
+
 @interface GCColorData : NSObject
 
 @property (nonatomic, copy) NSString* strName;

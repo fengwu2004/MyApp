@@ -63,4 +63,12 @@ static GCColorDataMgr* _instance;
 	return _colorDataSource;
 }
 
+- (void)saveColor:(GCColorData*)color new:(BOOL)isNewColor {
+	
+	if (isNewColor) {
+		
+		[_colorDataSource addObject:color];
+	}
+}
+
 @end

@@ -7,6 +7,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GCColorEditVCTL">
             <connections>
+                <outlet property="ibColorName" destination="6N3-uu-dM9" id="HFN-rR-EbL"/>
+                <outlet property="ibSliderBlue" destination="6Z8-lm-eBN" id="RN4-Eo-166"/>
+                <outlet property="ibSliderGreen" destination="rXY-Y3-SaC" id="2Qc-SL-gdS"/>
+                <outlet property="ibSliderRed" destination="tJR-pB-1GT" id="Vk3-Iv-1sD"/>
+                <outlet property="ibViewColor" destination="jul-b7-7sR" id="pKc-SG-2Wj"/>
                 <outlet property="view" destination="iN0-l3-epB" id="KMd-bw-S9E"/>
             </connections>
         </placeholder>
@@ -14,7 +19,50 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jul-b7-7sR">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="358"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6N3-uu-dM9">
+                            <rect key="frame" x="167" y="80" width="255" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="words" enablesReturnKeyAutomatically="YES"/>
+                            <connections>
+                                <action selector="onNameChanged:" destination="-1" eventType="editingDidEnd" id="0Lf-hK-xkz"/>
+                                <outlet property="delegate" destination="-1" id="vX4-VQ-NQC"/>
+                            </connections>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="0.3052618279" blue="0.64045235410000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="358" id="msV-gh-8Te"/>
+                    </constraints>
+                </view>
+                <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="tJR-pB-1GT">
+                    <rect key="frame" x="42" y="421" width="118" height="31"/>
+                    <connections>
+                        <action selector="onRedColorChange:" destination="-1" eventType="valueChanged" id="XTG-Pj-1eS"/>
+                    </connections>
+                </slider>
+                <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="rXY-Y3-SaC">
+                    <rect key="frame" x="42" y="464" width="118" height="31"/>
+                    <connections>
+                        <action selector="onGreenColorChange:" destination="-1" eventType="valueChanged" id="7Ej-dU-fC6"/>
+                    </connections>
+                </slider>
+                <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="6Z8-lm-eBN">
+                    <rect key="frame" x="42" y="516" width="118" height="31"/>
+                    <connections>
+                        <action selector="onBlueColorChange:" destination="-1" eventType="valueChanged" id="eFK-7S-MzT"/>
+                    </connections>
+                </slider>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="jul-b7-7sR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="06S-hc-ed6"/>
+                <constraint firstAttribute="trailing" secondItem="jul-b7-7sR" secondAttribute="trailing" id="3aV-MX-lvG"/>
+                <constraint firstItem="jul-b7-7sR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="PHg-ee-yew"/>
+            </constraints>
             <point key="canvasLocation" x="277" y="431"/>
         </view>
     </objects>

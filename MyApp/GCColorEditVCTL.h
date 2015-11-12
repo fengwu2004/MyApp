@@ -10,8 +10,23 @@
 #define GCColorEditVCTL_h
 
 #import <UIKit/UIKit.h>
+#import "GCColorDefine.h"
 
 @interface GCColorEditVCTL : UIViewController
+
+@property (nonatomic, retain) IBOutlet UIView* ibViewColor;
+@property (nonatomic, retain) IBOutlet UITextField* ibColorName;
+@property (nonatomic, retain) IBOutlet UISlider* ibSliderRed;
+@property (nonatomic, retain) IBOutlet UISlider* ibSliderGreen;
+@property (nonatomic, retain) IBOutlet UISlider* ibSliderBlue;
+
+@property (nonatomic, assign) BOOL isCreateNew;
+
+- (IBAction)onRedColorChange:(id)sender;
+- (IBAction)onGreenColorChange:(id)sender;
+- (IBAction)onBlueColorChange:(id)sender;
+
+- (IBAction)onNameChanged:(id)sender;
 
 @end
 

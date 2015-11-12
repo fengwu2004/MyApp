@@ -15,4 +15,6 @@
 
 - (NSArray*)retriveColorData:(GCColorStoreType)type;
 
+- (void)saveColor:(GCColorData*)color new:(BOOL)isNewColor;
+
 @end
