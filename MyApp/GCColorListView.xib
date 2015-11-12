@@ -70,5 +70,39 @@
             </connections>
             <point key="canvasLocation" x="168.5" y="295.5"/>
         </tableViewCell>
+        <view contentMode="scaleToFill" id="2ru-Fs-jm3" customClass="GCAlertView">
+            <rect key="frame" x="0.0" y="0.0" width="326" height="133"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="确定要删除?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbH-DM-z0L">
+                    <rect key="frame" x="116" y="39" width="94" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jcZ-Ny-pGD">
+                    <rect key="frame" x="55" y="95" width="30" height="30"/>
+                    <state key="normal" title="取消"/>
+                    <connections>
+                        <action selector="cancel:" destination="2ru-Fs-jm3" eventType="touchUpInside" id="9Sh-TK-PMH"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eoo-vg-wFM">
+                    <rect key="frame" x="218" y="95" width="46" height="30"/>
+                    <state key="normal" title="确定"/>
+                    <connections>
+                        <action selector="confirm:" destination="2ru-Fs-jm3" eventType="touchUpInside" id="ApT-sy-ovP"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="wbH-DM-z0L" secondAttribute="trailing" constant="116" id="411-pp-FNa"/>
+                <constraint firstItem="wbH-DM-z0L" firstAttribute="leading" secondItem="2ru-Fs-jm3" secondAttribute="leading" constant="116" id="OiI-11-VGk"/>
+                <constraint firstItem="wbH-DM-z0L" firstAttribute="top" secondItem="2ru-Fs-jm3" secondAttribute="top" constant="39" id="ZCT-Zh-2F4"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="131" y="816.5"/>
+        </view>
     </objects>
 </document>

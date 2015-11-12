@@ -11,8 +11,9 @@
 #import "GCColorListCell.h"
 #import "GCColorEditVCTL.h"
 #import "GCColorDataMgr.h"
+#import "GCAlertView.h"
 
-@interface GCColorListVCTL()
+@interface GCColorListVCTL()<GCAlertViewDelegate>
 
 @property (nonatomic, retain) NSMutableArray* dataSource;
 
@@ -122,6 +123,30 @@
 	return YES;
 }
 
+- (void)onDeleteAlert:(NSInteger)selectIndex {
+	
+	GCAlertView* view = (GCAlertView*)[self viewByClassName:@"GCAlertView" inNib:@"GCColorListView"];
+	
+	[view setDelegater:self];
+	
+	[view setSelectIndex:selectIndex];
+	
+	[self.view addSubview:view];
+	
+	CGPoint center = CGPointMake([[UIScreen mainScreen] bounds].size.width * 0.5, [[UIScreen mainScreen] bounds].size.height * 0.5);
+	
+	[view show:center];
+}
+
+- (void)onDelelte:(GCAlertView *)sender {
+	
+	NSInteger nIndex = sender.selectIndex;
+	
+	GCColorData* data = _dataSource[nIndex];
+	
+	[[GCColorDataMgr sharedInstance] removeColorById:data.colorId];
+}
+
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
 	
 	if (indexPath.row >= _dataSource.count) {
@@ -129,9 +154,7 @@
 		return;
 	}
 	
-	GCColorData* data = _dataSource[indexPath.row];
-	
-	[[GCColorDataMgr sharedInstance] removeColorById:data.colorId];
+	[self onDeleteAlert:indexPath.row];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -150,6 +173,18 @@
 	[vctl setColorId:data.colorId];
 	
 	[self.navigationController pushViewController:vctl animated:YES];
+}
+
+- (UIView *)viewByClassName:(NSString *)className inNib:(NSString *)nibName {
+	
+	NSArray *nib = [[NSBundle mainBundle] loadNibNamed:nibName owner:self options:nil];
+	Class cellClass = NSClassFromString(className);
+	for (id oneObject in nib) {
+		if ([oneObject isMemberOfClass:cellClass]) {
+			return oneObject;
+		}
+	}
+	return nil;
 }
 
 - (UITableViewCell *)cellByClassName:(NSString *)className inNib:(NSString *)nibName forTableView:(UITableView *)tableView {

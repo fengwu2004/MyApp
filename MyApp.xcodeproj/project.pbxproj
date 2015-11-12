@@ -24,6 +24,7 @@
 		CE9C0B481BF466C000AA90B8 /* GCStoreSystemMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C0B471BF466C000AA90B8 /* GCStoreSystemMgr.m */; };
 		CE9C0B4A1BF483E900AA90B8 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9C0B491BF483E900AA90B8 /* libsqlite3.0.tbd */; };
 		CE9C0B721BF4A73300AA90B8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE9C0B711BF4A73300AA90B8 /* Images.xcassets */; };
+		CE9C0B741BF4B85300AA90B8 /* GCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C0B731BF4B85300AA90B8 /* GCAlertView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,8 @@
 		CE9C0B471BF466C000AA90B8 /* GCStoreSystemMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCStoreSystemMgr.m; sourceTree = "<group>"; };
 		CE9C0B491BF483E900AA90B8 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		CE9C0B711BF4A73300AA90B8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CE9C0B731BF4B85300AA90B8 /* GCAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCAlertView.m; path = ../GCAlertView.m; sourceTree = "<group>"; };
+		CE9C0B751BF4B85C00AA90B8 /* GCAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GCAlertView.h; path = ../GCAlertView.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +107,8 @@
 				CE9C0B0B1BF4341600AA90B8 /* GCColorEditVCTL.h */,
 				CE9C0B0C1BF4341F00AA90B8 /* GCColorEditVCTL.xib */,
 				CE9C0B0E1BF4364F00AA90B8 /* GCColorListView.xib */,
+				CE9C0B751BF4B85C00AA90B8 /* GCAlertView.h */,
+				CE9C0B731BF4B85300AA90B8 /* GCAlertView.m */,
 				CE9C0B101BF436D500AA90B8 /* GCColorListCell.m */,
 				CE9C0B121BF436DC00AA90B8 /* GCColorListCell.h */,
 				CE9C0B401BF4410B00AA90B8 /* GCColorDefine.h */,
@@ -207,6 +212,7 @@
 				CE9C0B451BF4416B00AA90B8 /* GCColorDataMgr.m in Sources */,
 				CE9C0B421BF4410B00AA90B8 /* GCColorDefine.m in Sources */,
 				CE9C0B0A1BF4340F00AA90B8 /* GCColorEditVCTL.m in Sources */,
+				CE9C0B741BF4B85300AA90B8 /* GCAlertView.m in Sources */,
 				CE9C0B111BF436D500AA90B8 /* GCColorListCell.m in Sources */,
 				CE9C0B481BF466C000AA90B8 /* GCStoreSystemMgr.m in Sources */,
 			);
