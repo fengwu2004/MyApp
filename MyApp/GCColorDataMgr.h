@@ -15,9 +15,9 @@
 
 + (id)sharedInstance;
 
-- (NSArray*)retriveColorData:(GCStoreType)type;
+- (NSArray*)retriveColorData;
 
-- (void)setColorData:(NSObject*)obj;
+- (void)setColorData:(NSArray*)dataArray;
 
 - (NSArray*)getColorData;
 

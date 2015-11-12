@@ -63,9 +63,7 @@ static GCColorDataMgr* _instance;
 	[_colorDataSource addObjectsFromArray:[[GCStoreSystemMgr sharedInstance] retriveData:_dataStoreType]];
 }
 
-- (NSArray*)retriveColorData:(GCStoreType)type {
-
-	_dataStoreType = type;
+- (NSArray*)retriveColorData {
 	
 	[self loadData];
 	
@@ -112,11 +110,11 @@ static GCColorDataMgr* _instance;
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"colorDeleteSuccess" object:nil];
 }
 
-- (void)setColorData:(NSObject*)obj {
+- (void)setColorData:(NSArray*)dataArray {
 	
 	[_colorDataSource removeAllObjects];
 	
-	[_colorDataSource addObjectsFromArray:(NSArray*)obj];
+	[_colorDataSource addObjectsFromArray:dataArray];
 }
 
 - (NSArray*)getColorData {

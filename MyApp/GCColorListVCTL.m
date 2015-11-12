@@ -44,12 +44,26 @@
 	
 	[_dataSource removeAllObjects];
 	
-	[_dataSource addObjectsFromArray:[[GCColorDataMgr sharedInstance] retriveColorData:_storeType]];
+	[_dataSource addObjectsFromArray:[[GCColorDataMgr sharedInstance] retriveColorData]];
 	
 	[_ibTableColor reloadData];
 }
 
 - (void)createColor {
+	
+	for (UIViewController *vctl in self.navigationController.viewControllers) {
+		
+		if ([vctl isKindOfClass:[GCColorEditVCTL class]]) {
+			
+			GCColorEditVCTL* editVCTL = (GCColorEditVCTL*)vctl;
+			
+			[editVCTL setColorId:-1];
+			
+			[self.navigationController popToViewController:vctl animated:YES];
+			
+			return;
+		}
+	}
 	
 	GCColorEditVCTL* vctl = [[GCColorEditVCTL alloc] init];
 	
@@ -69,7 +83,7 @@
 	
 	[_dataSource removeAllObjects];
 	
-	[_dataSource addObjectsFromArray:[[GCColorDataMgr sharedInstance] retriveColorData:_storeType]];
+	[_dataSource addObjectsFromArray:[[GCColorDataMgr sharedInstance] retriveColorData]];
 	
 	[_ibTableColor reloadData];
 }
