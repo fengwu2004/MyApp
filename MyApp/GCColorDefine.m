@@ -17,6 +17,8 @@
 	
 	[encoder encodeObject:_strName forKey:COLOR_NAME];
 	
+	[encoder encodeInteger:_colorId forKey:COLOR_ID];
+	
 	[encoder encodeInteger:_red forKey:COLOR_RED];
 	
 	[encoder encodeInteger:_green forKey:COLOR_GREEN];
@@ -27,6 +29,8 @@
 - (id)initWithCoder:(NSCoder *)decoder {
 	
 	_strName = [decoder decodeObjectForKey:COLOR_NAME];
+
+	_colorId = [decoder decodeIntegerForKey:COLOR_ID];
 	
 	_red = [decoder decodeIntegerForKey:COLOR_RED];
 	
@@ -43,6 +47,8 @@
 	
 	data.strName = [_strName copyWithZone:zone];
 	
+	data.colorId = _colorId;
+	
 	data.red = _red;
 	
 	data.green = _green;
@@ -58,6 +64,8 @@
 	
 	[dic setObject:_strName forKey:COLOR_NAME];
 	
+	[dic setObject:LONG2STR((long)_colorId) forKey:COLOR_ID];
+	
 	[dic setObject:LONG2STR((long)_red) forKey:COLOR_RED];
 	
 	[dic setObject:LONG2STR((long)_green) forKey:COLOR_GREEN];
@@ -71,11 +79,13 @@
 	
 	_strName = [dic objectForKey:COLOR_NAME];
 	
-	_red = [[dic objectForKey:COLOR_NAME] integerValue];
+	_colorId = [[dic objectForKey:COLOR_ID] integerValue];
 	
-	_green = [[dic objectForKey:COLOR_NAME] integerValue];
+	_red = [[dic objectForKey:COLOR_RED] integerValue];
 	
-	_blue = [[dic objectForKey:COLOR_NAME] integerValue];
+	_green = [[dic objectForKey:COLOR_GREEN] integerValue];
+	
+	_blue = [[dic objectForKey:COLOR_BLUE] integerValue];
 	
 	return self;
 }

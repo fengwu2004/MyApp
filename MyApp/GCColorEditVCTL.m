@@ -13,6 +13,7 @@
 @interface GCColorEditVCTL()<UITextFieldDelegate>
 
 @property (nonatomic, retain)GCColorData* colorData;
+@property (nonatomic, assign) BOOL isCreateNew;
 
 @end
 
@@ -136,7 +137,7 @@
 		
 		_isCreateNew = YES;
 		
-		_colorData = [[GCColorData alloc] init];
+		_colorData = [[GCColorDataMgr sharedInstance] createColor];
 	}
 }
 

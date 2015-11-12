@@ -141,7 +141,7 @@ static GCStoreSystemMgr* _instance;
 	
 	if ([self execSql:updateSql] != SQLITE_OK) {
 		
-		NSString *insertSql = [NSString stringWithFormat:@"INSERT INTO colorInfo(NAME,COLORID,RED,GREEN,BLUE) VALUES(%d,'%@',%d,%d,%d)", (int)data.colorId, data.strName, (int)data.red, (int)data.green, (int)data.blue];
+		NSString *insertSql = [NSString stringWithFormat:@"INSERT INTO colorInfo(COLORID,NAME,RED,GREEN,BLUE) VALUES(%d,'%@',%d,%d,%d)", (int)data.colorId, data.strName, (int)data.red, (int)data.green, (int)data.blue];
 		
 		[self execSql:insertSql];
 	}
@@ -165,15 +165,17 @@ static GCStoreSystemMgr* _instance;
 			
 			GCColorData* data = [[GCColorData alloc] init];
 			
-			char *name = (char *)sqlite3_column_text(info, 1);
+			data.colorId = sqlite3_column_int(info, 1);
+			
+			char *name = (char *)sqlite3_column_text(info, 2);
 			
 			data.strName = [[NSString alloc] initWithUTF8String:name];
 			
-			data.red = sqlite3_column_int(info, 2);
+			data.red = sqlite3_column_int(info, 3);
 			
-			data.green = sqlite3_column_int(info, 3);
+			data.green = sqlite3_column_int(info, 4);
 			
-			data.blue = sqlite3_column_int(info, 4);
+			data.blue = sqlite3_column_int(info, 5);
 			
 			[dataArray addObject:data];
 		}

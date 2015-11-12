@@ -23,8 +23,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jul-b7-7sR">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="358"/>
                     <subviews>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6N3-uu-dM9">
-                            <rect key="frame" x="167" y="80" width="255" height="30"/>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6N3-uu-dM9">
+                            <rect key="frame" x="140" y="80" width="320" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="words" enablesReturnKeyAutomatically="YES"/>
                             <connections>
@@ -36,22 +36,31 @@
                     <color key="backgroundColor" red="1" green="0.3052618279" blue="0.64045235410000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="358" id="msV-gh-8Te"/>
+                        <constraint firstAttribute="trailing" secondItem="6N3-uu-dM9" secondAttribute="trailing" constant="140" id="t4K-WI-OHj"/>
                     </constraints>
                 </view>
-                <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="tJR-pB-1GT">
-                    <rect key="frame" x="42" y="421" width="118" height="31"/>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="tJR-pB-1GT">
+                    <rect key="frame" x="78" y="421" width="443" height="31"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="114" id="SkR-g0-aWY"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="SkR-g0-aWY"/>
+                        </mask>
+                    </variation>
                     <connections>
                         <action selector="onRedColorChange:" destination="-1" eventType="valueChanged" id="XTG-Pj-1eS"/>
                     </connections>
                 </slider>
-                <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="rXY-Y3-SaC">
-                    <rect key="frame" x="42" y="464" width="118" height="31"/>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="rXY-Y3-SaC">
+                    <rect key="frame" x="84" y="464" width="437" height="31"/>
                     <connections>
                         <action selector="onGreenColorChange:" destination="-1" eventType="valueChanged" id="7Ej-dU-fC6"/>
                     </connections>
                 </slider>
-                <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="6Z8-lm-eBN">
-                    <rect key="frame" x="42" y="516" width="118" height="31"/>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="6Z8-lm-eBN">
+                    <rect key="frame" x="84" y="512" width="437" height="31"/>
                     <connections>
                         <action selector="onBlueColorChange:" destination="-1" eventType="valueChanged" id="eFK-7S-MzT"/>
                     </connections>
@@ -61,7 +70,20 @@
             <constraints>
                 <constraint firstItem="jul-b7-7sR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="06S-hc-ed6"/>
                 <constraint firstAttribute="trailing" secondItem="jul-b7-7sR" secondAttribute="trailing" id="3aV-MX-lvG"/>
+                <constraint firstItem="6N3-uu-dM9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="80" id="5gI-R5-HO5"/>
+                <constraint firstItem="6N3-uu-dM9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="140" id="6Hy-rO-YTj"/>
+                <constraint firstItem="tJR-pB-1GT" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="6iJ-fB-RzG"/>
+                <constraint firstItem="tJR-pB-1GT" firstAttribute="top" secondItem="jul-b7-7sR" secondAttribute="bottom" constant="63" id="AJL-LR-MeX"/>
+                <constraint firstItem="6N3-uu-dM9" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="DTt-uI-DfT"/>
+                <constraint firstAttribute="trailing" secondItem="rXY-Y3-SaC" secondAttribute="trailing" constant="81" id="GVw-dA-DTL"/>
                 <constraint firstItem="jul-b7-7sR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="PHg-ee-yew"/>
+                <constraint firstAttribute="trailing" secondItem="tJR-pB-1GT" secondAttribute="trailing" constant="81" id="YnC-zI-QcK"/>
+                <constraint firstItem="tJR-pB-1GT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="80" id="atA-ZA-STj"/>
+                <constraint firstItem="6Z8-lm-eBN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="86" id="j80-4y-rVg"/>
+                <constraint firstItem="rXY-Y3-SaC" firstAttribute="top" secondItem="tJR-pB-1GT" secondAttribute="bottom" constant="13" id="rU9-Rx-aDB"/>
+                <constraint firstItem="6Z8-lm-eBN" firstAttribute="top" secondItem="rXY-Y3-SaC" secondAttribute="bottom" constant="18" id="v5Q-l2-fwU"/>
+                <constraint firstAttribute="trailing" secondItem="6Z8-lm-eBN" secondAttribute="trailing" constant="81" id="wZl-qu-JNg"/>
+                <constraint firstItem="rXY-Y3-SaC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="86" id="xAt-VR-PGV"/>
             </constraints>
             <point key="canvasLocation" x="277" y="431"/>
         </view>

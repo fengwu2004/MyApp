@@ -29,4 +29,6 @@
 
 - (void)removeColorById:(NSInteger)colorId;
 
+- (GCColorData*)createColor;
+
 @end

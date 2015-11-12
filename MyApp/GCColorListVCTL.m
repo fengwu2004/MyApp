@@ -36,13 +36,24 @@
 	UIBarButtonItem* item = [[UIBarButtonItem alloc] initWithTitle:@"创建" style:UIBarButtonItemStylePlain target:self action:@selector(createColor)];
 	
 	self.navigationItem.rightBarButtonItem = item;
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onRemoveColor) name:@"colorDeleteSuccess" object:nil];
+}
+
+- (void)onRemoveColor {
+	
+	[_dataSource removeAllObjects];
+	
+	[_dataSource addObjectsFromArray:[[GCColorDataMgr sharedInstance] retriveColorData:_storeType]];
+	
+	[_ibTableColor reloadData];
 }
 
 - (void)createColor {
 	
 	GCColorEditVCTL* vctl = [[GCColorEditVCTL alloc] init];
 	
-	[vctl setIsCreateNew:YES];
+	[vctl setColorId:-1];
 	
 	[self.navigationController pushViewController:vctl animated:YES];
 }
@@ -141,7 +152,13 @@
 			if ([oneObject isMemberOfClass:cellClass])
 				return oneObject;
 	}
+	
 	return cell;
+}
+
+- (void)dealloc {
+	
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+#define COLOR_ID			@"colorid"
 #define COLOR_NAME		@"colorname"
 #define COLOR_RED			@"red"
 #define COLOR_GREEN		@"green"

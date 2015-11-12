@@ -106,6 +106,8 @@ static GCColorDataMgr* _instance;
 	[_colorDataSource removeObject:color];
 	
 	[[GCStoreSystemMgr sharedInstance] removeColor:colorId withStoreType:_dataStoreType];
+	
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"colorDeleteSuccess" object:nil];
 }
 
 - (void)setColorData:(NSObject*)obj {
@@ -118,6 +120,15 @@ static GCColorDataMgr* _instance;
 - (NSArray*)getColorData {
 	
 	return _colorDataSource;
+}
+
+- (GCColorData*)createColor {
+	
+	GCColorData* data = [[GCColorData alloc] init];
+	
+	data.colorId = _colorDataSource.count;
+	
+	return data;
 }
 
 - (GCColorData*)findColorById:(NSInteger)colorId {
