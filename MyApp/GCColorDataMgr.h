@@ -15,8 +15,6 @@
 
 + (id)sharedInstance;
 
-- (void)loadData:(GCColorStoreType)type;
-
 - (NSArray*)retriveColorData:(GCColorStoreType)type;
 
 - (void)setColorData:(NSObject*)obj;

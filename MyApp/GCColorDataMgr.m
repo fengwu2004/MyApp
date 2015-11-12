@@ -56,9 +56,7 @@ static GCColorDataMgr* _instance;
 	[_colorDataSource addObject:color];
 }
 
-- (void)loadData:(GCColorStoreType)type {
-	
-	_dataStoreType = type;
+- (void)loadData {
 	
 	[_colorDataSource removeAllObjects];
 	
@@ -66,6 +64,10 @@ static GCColorDataMgr* _instance;
 }
 
 - (NSArray*)retriveColorData:(GCColorStoreType)type {
+
+	_dataStoreType = type;
+	
+	[self loadData];
 	
 	return _colorDataSource;
 }

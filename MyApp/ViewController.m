@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "GCColorListVCTL.h"
 #import "GCColorDataMgr.h"
+#import "GCColorEditVCTL.h"
 
 @interface ViewController ()
 
@@ -42,27 +43,33 @@
 
 - (IBAction)objectStoreWithEncode:(id)sender {
 	
-	GCColorListVCTL* vctl = [[GCColorListVCTL alloc] init];
+	[[GCColorDataMgr sharedInstance] setDataStoreType:GCColorStoreType_encode];
 	
-	[[GCColorDataMgr sharedInstance] loadData:GCColorStoreType_encode];
+	GCColorEditVCTL* vctl = [[GCColorEditVCTL alloc] init];
+	
+	[vctl setColorId:-1];
 	
 	[self.navigationController pushViewController:vctl animated:YES];
 }
 
 - (IBAction)objectStoreWithPlist:(id)sender {
 	
-	GCColorListVCTL* vctl = [[GCColorListVCTL alloc] init];
+	[[GCColorDataMgr sharedInstance] setDataStoreType:GCColorStoreType_plist];
 	
-	[[GCColorDataMgr sharedInstance] loadData:GCColorStoreType_plist];
+	GCColorEditVCTL* vctl = [[GCColorEditVCTL alloc] init];
+	
+	[vctl setColorId:-1];
 	
 	[self.navigationController pushViewController:vctl animated:YES];
 }
 
 - (IBAction)objectStoreWithSqlite:(id)sender {
 	
-	GCColorListVCTL* vctl = [[GCColorListVCTL alloc] init];
+	[[GCColorDataMgr sharedInstance] setDataStoreType:GCColorStoreType_sqlite];
 	
-	[[GCColorDataMgr sharedInstance] loadData:GCColorStoreType_sqlite];
+	GCColorEditVCTL* vctl = [[GCColorEditVCTL alloc] init];
+	
+	[vctl setColorId:-1];
 	
 	[self.navigationController pushViewController:vctl animated:YES];
 }

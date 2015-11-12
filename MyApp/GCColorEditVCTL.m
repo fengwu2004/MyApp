@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "GCColorEditVCTL.h"
 #import "GCColorDataMgr.h"
+#import "GCColorListVCTL.h"
 
 @interface GCColorEditVCTL()<UITextFieldDelegate>
 
@@ -119,6 +120,10 @@
 	_colorData.strName = _ibColorName.text;
 	
 	[[GCColorDataMgr sharedInstance] addOrReplace:_colorData];
+	
+	GCColorListVCTL *vctl = [[GCColorListVCTL alloc] init];
+	
+	[self.navigationController pushViewController:vctl animated:YES];
 }
 
 - (void)setColorId:(NSInteger)colorId {
