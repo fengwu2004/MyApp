@@ -24,6 +24,21 @@
 	[encoder encodeInteger:_green forKey:COLOR_GREEN];
 	
 	[encoder encodeInteger:_blue forKey:COLOR_BLUE];
+	
+	NSString* createAt = [self pd_yyyyMMddHHmmString:_created_at];
+	
+	[encoder encodeObject:createAt forKey:COLOR_CREATE];
+}
+
+- (NSDate*)pd_yyyyMMddhhmmDate:(NSString*)str {
+	
+	NSDateFormatter	*formatter =[[NSDateFormatter alloc] init];
+	
+	[formatter setDateFormat:@"yyyyMMddHHmm"];
+
+	NSDate *aDate = [formatter dateFromString:str];
+	
+	return aDate;
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
@@ -37,6 +52,10 @@
 	_green = [decoder decodeIntegerForKey:COLOR_GREEN];
 	
 	_blue = [decoder decodeIntegerForKey:COLOR_BLUE];
+	
+	NSString* createAt = [decoder decodeObjectForKey:COLOR_CREATE];
+	
+	_created_at = [self pd_yyyyMMddhhmmDate:createAt];
 	
 	return self;
 }
@@ -55,7 +74,25 @@
 	
 	data.blue = _blue;
 	
+	data.created_at = [_created_at copy];
+	
 	return data;
+}
+
+- (NSString*)pd_yyyyMMddHHmmString:(NSDate*)date {
+	
+	NSDateFormatter	*formatter = [[NSDateFormatter alloc] init];
+	
+	[formatter setDateFormat:@"yyyy-MM-dd HH:mm"];
+	
+	NSString *str = [formatter stringFromDate:date];
+	
+	return str;
+}
+
+- (NSString*)createTime {
+	
+	return [self pd_yyyyMMddHHmmString:_created_at];
 }
 
 - (NSDictionary*)dicFromObject {
@@ -72,6 +109,10 @@
 	
 	[dic setObject:LONG2STR((long)_blue) forKey:COLOR_BLUE];
 	
+	NSString* str = [self pd_yyyyMMddHHmmString:_created_at];
+	
+	[dic setObject:str forKey:COLOR_CREATE];
+	
 	return dic;
 }
 
@@ -86,6 +127,10 @@
 	_green = [[dic objectForKey:COLOR_GREEN] integerValue];
 	
 	_blue = [[dic objectForKey:COLOR_BLUE] integerValue];
+	
+	NSString* str = [dic objectForKey:COLOR_CREATE];
+	
+	_created_at = [self pd_yyyyMMddhhmmDate:str];
 	
 	return self;
 }

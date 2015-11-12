@@ -111,7 +111,8 @@ static GCStoreSystemMgr* _instance;
 		NAME TEXT, \
 		RED INTEGER,\
 		GREEN INTEGER,\
-		BLUE INTEGER)";
+		BLUE INTEGER,\
+		CREATEAT TEXT)";
 		
 		[self execSql:createsql];
 	}
@@ -137,11 +138,11 @@ static GCStoreSystemMgr* _instance;
 
 - (void)saveToDB:(GCColorData*)data {
 	
-	NSString *updateSql = [NSString stringWithFormat:@"UPDATE colorInfo SET NAME='%@' RED=%d GREEN=%d BLUE=%d WHERE COLORID=%d", data.strName, (int)data.red, (int)data.green, (int)data.blue, (int)data.colorId];
+	NSString *updateSql = [NSString stringWithFormat:@"UPDATE colorInfo SET NAME='%@' RED=%d GREEN=%d BLUE=%d CREATEAT='%@' WHERE COLORID=%d", data.strName, (int)data.red, (int)data.green, (int)data.blue, [data createTime], (int)data.colorId];
 	
 	if ([self execSql:updateSql] != SQLITE_OK) {
 		
-		NSString *insertSql = [NSString stringWithFormat:@"INSERT INTO colorInfo(COLORID,NAME,RED,GREEN,BLUE) VALUES(%d,'%@',%d,%d,%d)", (int)data.colorId, data.strName, (int)data.red, (int)data.green, (int)data.blue];
+		NSString *insertSql = [NSString stringWithFormat:@"INSERT INTO colorInfo(COLORID,NAME,RED,GREEN,BLUE,CREATEAT) VALUES(%d,'%@',%d,%d,%d,'%@')", (int)data.colorId, data.strName, (int)data.red, (int)data.green, (int)data.blue,[data createTime]];
 		
 		[self execSql:insertSql];
 	}

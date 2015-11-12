@@ -13,6 +13,7 @@
 #define COLOR_RED			@"red"
 #define COLOR_GREEN		@"green"
 #define COLOR_BLUE		@"blue"
+#define COLOR_CREATE	@"createat"
 
 typedef NS_ENUM(NSUInteger, GCStoreType) {
 	
@@ -28,6 +29,9 @@ typedef NS_ENUM(NSUInteger, GCStoreType) {
 @property (nonatomic, assign) NSInteger red;
 @property (nonatomic, assign) NSInteger green;
 @property (nonatomic, assign) NSInteger blue;
+@property (nonatomic, retain) NSDate *created_at;
+
+- (NSString*)createTime;
 
 - (NSDictionary*)dicFromObject;
 

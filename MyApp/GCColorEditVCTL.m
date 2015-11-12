@@ -149,6 +149,8 @@
 	
 	_colorData.strName = _ibColorName.text;
 	
+	_colorData.created_at = [NSDate date];
+	
 	[[GCColorDataMgr sharedInstance] addOrReplace:_colorData];
 	
 	GCColorListVCTL *vctl = [[GCColorListVCTL alloc] init];

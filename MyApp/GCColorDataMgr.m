@@ -56,11 +56,48 @@ static GCColorDataMgr* _instance;
 	[_colorDataSource addObject:color];
 }
 
+- (BOOL)pd_isEarlierFrom:(NSDate*)date1 toDate:(NSDate*)date2  {
+	
+	if ([date1 timeIntervalSinceDate:date2] >=0) {
+		
+		return NO;
+	}
+	else {
+		
+		return YES;
+	}
+}
+
+- (void)sort {
+	
+	NSComparator cmptr = ^(id obj1, id obj2){
+		
+		GCColorData* data1 = (GCColorData*)obj1;
+		
+		GCColorData* data2 = (GCColorData*)obj2;
+		
+		if ([self pd_isEarlierFrom:data1.created_at toDate:data2.created_at]) {
+			
+			return (NSComparisonResult)NSOrderedDescending;
+		}
+		
+		return (NSComparisonResult)NSOrderedAscending;
+	};
+	
+	NSArray *array = [_colorDataSource sortedArrayUsingComparator:cmptr];
+	
+	[_colorDataSource removeAllObjects];
+	
+	[_colorDataSource addObjectsFromArray:array];
+}
+
 - (BOOL)loadData {
 	
 	[_colorDataSource removeAllObjects];
 	
 	[_colorDataSource addObjectsFromArray:[[GCStoreSystemMgr sharedInstance] retriveData:_dataStoreType]];
+	
+	[self sort];
 	
 	if (_colorDataSource.count == 0) {
 		
@@ -90,6 +127,8 @@ static GCColorDataMgr* _instance;
 		data.green = color.green;
 		
 		data.blue = color.blue;
+		
+		data.created_at = color.created_at;
 	}
 	else {
 		
