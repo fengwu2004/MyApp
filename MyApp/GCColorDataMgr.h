@@ -11,7 +11,11 @@
 
 @interface GCColorDataMgr : NSObject
 
+@property (nonatomic, assign) GCColorStoreType dataStoreType;
+
 + (id)sharedInstance;
+
+- (void)loadData:(GCColorStoreType)type;
 
 - (NSArray*)retriveColorData:(GCColorStoreType)type;
 

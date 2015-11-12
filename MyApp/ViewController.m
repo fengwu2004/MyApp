@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "GCColorListVCTL.h"
+#import "GCColorDataMgr.h"
 
 @interface ViewController ()
 
@@ -29,17 +30,27 @@
 	
 	GCColorListVCTL* vctl = [[GCColorListVCTL alloc] init];
 	
+	[[GCColorDataMgr sharedInstance] loadData:GCColorStoreType_encode];
+	
 	[self.navigationController pushViewController:vctl animated:YES];
 }
 
 - (IBAction)objectStoreWithPlist:(id)sender {
 	
+	GCColorListVCTL* vctl = [[GCColorListVCTL alloc] init];
 	
+	[[GCColorDataMgr sharedInstance] loadData:GCColorStoreType_plist];
+	
+	[self.navigationController pushViewController:vctl animated:YES];
 }
 
 - (IBAction)objectStoreWithSqlite:(id)sender {
 	
+	GCColorListVCTL* vctl = [[GCColorListVCTL alloc] init];
 	
+	[[GCColorDataMgr sharedInstance] loadData:GCColorStoreType_sqlite];
+	
+	[self.navigationController pushViewController:vctl animated:YES];
 }
 
 @end

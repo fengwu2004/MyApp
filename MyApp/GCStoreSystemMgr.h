@@ -15,4 +15,6 @@
 
 - (void)saveData:(NSObject*)obj byStore:(GCColorStoreType)type;
 
+- (NSArray*)retriveData:(GCColorStoreType)type;
+
 @end

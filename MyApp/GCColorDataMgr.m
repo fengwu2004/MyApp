@@ -14,7 +14,6 @@ static GCColorDataMgr* _instance;
 @interface GCColorDataMgr()
 
 @property (nonatomic, retain) NSMutableArray* colorDataSource;
-@property (nonatomic, assign) GCColorStoreType dataStoreType;
 
 @end
 
@@ -55,6 +54,15 @@ static GCColorDataMgr* _instance;
 	color.blue = 100;
 	
 	[_colorDataSource addObject:color];
+}
+
+- (void)loadData:(GCColorStoreType)type {
+	
+	_dataStoreType = type;
+	
+	[_colorDataSource removeAllObjects];
+	
+	[_colorDataSource addObjectsFromArray:[[GCStoreSystemMgr sharedInstance] retriveData:_dataStoreType]];
 }
 
 - (NSArray*)retriveColorData:(GCColorStoreType)type {

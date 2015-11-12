@@ -39,7 +39,7 @@ static GCStoreSystemMgr* _instance;
 	return filePath;
 }
 
-- (void)retriveData:(GCColorStoreType)type {
+- (NSArray*)retriveData:(GCColorStoreType)type {
 	
 	switch (type) {
   case GCColorStoreType_encode:
@@ -50,13 +50,15 @@ static GCStoreSystemMgr* _instance;
 			
 			NSObject* obj = [un decodeObjectForKey:@"encodeColorData"];
 			
-			[[GCColorDataMgr sharedInstance] setColorData:obj];
+			return (NSArray*)obj;
 		}
 			break;
 			
   default:
 			break;
 	}
+	
+	return [[NSArray alloc] init];
 }
 
 - (void)saveData:(NSObject*)obj byStore:(GCColorStoreType)type {
