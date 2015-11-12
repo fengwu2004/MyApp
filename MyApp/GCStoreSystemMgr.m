@@ -107,7 +107,7 @@ static GCStoreSystemMgr* _instance;
 	if (sqlite3_open(dbpath, &dataBase) == SQLITE_OK) {
 		
 		NSString *createsql = @"CREATE TABLE IF NOT EXISTS colorInfo (\
-		ID INTEGER PRIMARY KEY AUTOINCREMENT,\
+		ID INTEGER PRIMARY KEY,\
 		COLORID INTEGER,\
 		NAME TEXT,\
 		CREATEAT INTEGER,\
@@ -139,14 +139,11 @@ static GCStoreSystemMgr* _instance;
 
 - (void)saveToDB:(GCColorData*)data {
 	
-	NSString *updateSql = [NSString stringWithFormat:@"UPDATE colorInfo SET NAME = '%@', CREATEAT = %d, RED = %d, GREEN = %d, BLUE = %d WHERE COLORID = %d", data.strName, (int)data.createTime, (int)data.red, (int)data.green, (int)data.blue, (int)data.colorId];
-	
-	if ([self execSql:updateSql] != SQLITE_OK) {
+  [self removeFromDB:data.colorId];
+  
+  NSString *insertSql = [NSString stringWithFormat:@"INSERT INTO colorInfo (COLORID,NAME,CREATEAT,RED,GREEN,BLUE) VALUES(%d, '%@', %d, %d, %d, %d)", (int)data.colorId, data.strName, (int)data.createTime, (int)data.red, (int)data.green, (int)data.blue];
 		
-		NSString *insertSql = [NSString stringWithFormat:@"INSERT INTO colorInfo (COLORID,NAME,CREATEAT,RED,GREEN,BLUE) VALUES(%d, '%@', %d, %d, %d, %d)", (int)data.colorId, data.strName, (int)data.createTime, (int)data.red, (int)data.green, (int)data.blue];
-		
-		[self execSql:insertSql];
-	}
+  [self execSql:insertSql];
 
 	sqlite3_close(dataBase);
 }
