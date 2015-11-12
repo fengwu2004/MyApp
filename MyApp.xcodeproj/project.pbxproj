@@ -17,6 +17,10 @@
 		CE9C0B071BF433BD00AA90B8 /* GCColorListVCTL.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C0B061BF433BD00AA90B8 /* GCColorListVCTL.m */; };
 		CE9C0B0A1BF4340F00AA90B8 /* GCColorEditVCTL.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C0B091BF4340F00AA90B8 /* GCColorEditVCTL.m */; };
 		CE9C0B0D1BF4341F00AA90B8 /* GCColorEditVCTL.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE9C0B0C1BF4341F00AA90B8 /* GCColorEditVCTL.xib */; };
+		CE9C0B0F1BF4364F00AA90B8 /* GCColorListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE9C0B0E1BF4364F00AA90B8 /* GCColorListView.xib */; };
+		CE9C0B111BF436D500AA90B8 /* GCColorListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C0B101BF436D500AA90B8 /* GCColorListCell.m */; };
+		CE9C0B421BF4410B00AA90B8 /* GCColorDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C0B411BF4410B00AA90B8 /* GCColorDefine.m */; };
+		CE9C0B451BF4416B00AA90B8 /* GCColorDataMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C0B441BF4416B00AA90B8 /* GCColorDataMgr.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +40,13 @@
 		CE9C0B091BF4340F00AA90B8 /* GCColorEditVCTL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCColorEditVCTL.m; sourceTree = "<group>"; };
 		CE9C0B0B1BF4341600AA90B8 /* GCColorEditVCTL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCColorEditVCTL.h; sourceTree = "<group>"; };
 		CE9C0B0C1BF4341F00AA90B8 /* GCColorEditVCTL.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GCColorEditVCTL.xib; sourceTree = "<group>"; };
+		CE9C0B0E1BF4364F00AA90B8 /* GCColorListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GCColorListView.xib; sourceTree = "<group>"; };
+		CE9C0B101BF436D500AA90B8 /* GCColorListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCColorListCell.m; sourceTree = "<group>"; };
+		CE9C0B121BF436DC00AA90B8 /* GCColorListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCColorListCell.h; sourceTree = "<group>"; };
+		CE9C0B401BF4410B00AA90B8 /* GCColorDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCColorDefine.h; sourceTree = "<group>"; };
+		CE9C0B411BF4410B00AA90B8 /* GCColorDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCColorDefine.m; sourceTree = "<group>"; };
+		CE9C0B431BF4416B00AA90B8 /* GCColorDataMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCColorDataMgr.h; sourceTree = "<group>"; };
+		CE9C0B441BF4416B00AA90B8 /* GCColorDataMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCColorDataMgr.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +94,13 @@
 				CE9C0B091BF4340F00AA90B8 /* GCColorEditVCTL.m */,
 				CE9C0B0B1BF4341600AA90B8 /* GCColorEditVCTL.h */,
 				CE9C0B0C1BF4341F00AA90B8 /* GCColorEditVCTL.xib */,
+				CE9C0B0E1BF4364F00AA90B8 /* GCColorListView.xib */,
+				CE9C0B101BF436D500AA90B8 /* GCColorListCell.m */,
+				CE9C0B121BF436DC00AA90B8 /* GCColorListCell.h */,
+				CE9C0B401BF4410B00AA90B8 /* GCColorDefine.h */,
+				CE9C0B411BF4410B00AA90B8 /* GCColorDefine.m */,
+				CE9C0B431BF4416B00AA90B8 /* GCColorDataMgr.h */,
+				CE9C0B441BF4416B00AA90B8 /* GCColorDataMgr.m */,
 			);
 			path = MyApp;
 			sourceTree = "<group>";
@@ -152,6 +170,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE9C0B0F1BF4364F00AA90B8 /* GCColorListView.xib in Resources */,
 				CE9C0AFD1BF432EE00AA90B8 /* LaunchScreen.storyboard in Resources */,
 				CE9C0AFA1BF432EE00AA90B8 /* Assets.xcassets in Resources */,
 				CE9C0B0D1BF4341F00AA90B8 /* GCColorEditVCTL.xib in Resources */,
@@ -171,7 +190,10 @@
 				CE9C0AF21BF432EE00AA90B8 /* AppDelegate.m in Sources */,
 				CE9C0B071BF433BD00AA90B8 /* GCColorListVCTL.m in Sources */,
 				CE9C0AEF1BF432EE00AA90B8 /* main.m in Sources */,
+				CE9C0B451BF4416B00AA90B8 /* GCColorDataMgr.m in Sources */,
+				CE9C0B421BF4410B00AA90B8 /* GCColorDefine.m in Sources */,
 				CE9C0B0A1BF4340F00AA90B8 /* GCColorEditVCTL.m in Sources */,
+				CE9C0B111BF436D500AA90B8 /* GCColorListCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

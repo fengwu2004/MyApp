@@ -5,12 +5,34 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GCColorListVCTL">
+            <connections>
+                <outlet property="ibTableColor" destination="e42-9d-mbS" id="Rld-Db-8rP"/>
+                <outlet property="view" destination="iN0-l3-epB" id="6RY-fn-HB7"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e42-9d-mbS">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="J6a-hl-Ydb"/>
+                        <outlet property="delegate" destination="-1" id="L6Y-NZ-FPu"/>
+                    </connections>
+                </tableView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="e42-9d-mbS" secondAttribute="trailing" id="1qI-pB-7zd"/>
+                <constraint firstItem="e42-9d-mbS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="8L7-qT-3ph"/>
+                <constraint firstItem="e42-9d-mbS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Whl-ZE-ytj"/>
+                <constraint firstAttribute="bottom" secondItem="e42-9d-mbS" secondAttribute="bottom" id="wc5-Yx-dTB"/>
+            </constraints>
+            <point key="canvasLocation" x="408" y="333"/>
         </view>
     </objects>
 </document>

@@ -9,5 +9,15 @@
 #ifndef GCColorListVCTL_h
 #define GCColorListVCTL_h
 
+#import <UIKit/UIKit.h>
+#import "GCColorDefine.h"
+
+@interface GCColorListVCTL : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, retain) IBOutlet UITableView* ibTableColor;
+@property (nonatomic, assign) GCColorStoreType storeType;
+
+@end
+
 
 #endif /* GCColorListVCTL_h */

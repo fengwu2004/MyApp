@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "GCColorListVCTL.h"
 
 @interface ViewController ()
 
@@ -22,6 +23,23 @@
 - (void)didReceiveMemoryWarning {
 	[super didReceiveMemoryWarning];
 	// Dispose of any resources that can be recreated.
+}
+
+- (IBAction)objectStoreWithEncode:(id)sender {
+	
+	GCColorListVCTL* vctl = [[GCColorListVCTL alloc] init];
+	
+	[self.navigationController pushViewController:vctl animated:YES];
+}
+
+- (IBAction)objectStoreWithPlist:(id)sender {
+	
+	
+}
+
+- (IBAction)objectStoreWithSqlite:(id)sender {
+	
+	
 }
 
 @end

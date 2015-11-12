@@ -10,6 +10,11 @@
 
 @interface ViewController : UIViewController
 
+- (IBAction)objectStoreWithEncode:(id)sender;
+
+- (IBAction)objectStoreWithPlist:(id)sender;
+
+- (IBAction)objectStoreWithSqlite:(id)sender;
 
 @end
 

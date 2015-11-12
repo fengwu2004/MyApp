@@ -9,5 +9,10 @@
 #ifndef GCColorEditVCTL_h
 #define GCColorEditVCTL_h
 
+#import <UIKit/UIKit.h>
+
+@interface GCColorEditVCTL : UIViewController
+
+@end
 
 #endif /* GCColorEditVCTL_h */

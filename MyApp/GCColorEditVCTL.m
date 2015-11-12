@@ -7,3 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GCColorEditVCTL.h"
+
+@implementation GCColorEditVCTL
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+	
+	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+	
+	return self;
+}
+
+@end
