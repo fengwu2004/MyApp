@@ -87,7 +87,7 @@ static GCColorDataMgr* _instance;
 	[_colorDataSource addObjectsFromArray:(NSArray*)obj];
 }
 
-- (NSObject*)getColorData {
+- (NSArray*)getColorData {
 	
 	return _colorDataSource;
 }

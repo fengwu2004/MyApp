@@ -9,6 +9,7 @@
 #import "GCColorDefine.h"
 
 
+#define LONG2STR(x) [NSString stringWithFormat:@"%ld", (x)]
 
 @implementation GCColorData
 
@@ -32,6 +33,34 @@
 	_green = [decoder decodeIntegerForKey:COLOR_GREEN];
 	
 	_blue = [decoder decodeIntegerForKey:COLOR_BLUE];
+	
+	return self;
+}
+
+- (NSDictionary*)dicFromObject {
+	
+	NSMutableDictionary* dic = [[NSMutableDictionary alloc] init];
+	
+	[dic setObject:_strName forKey:COLOR_NAME];
+	
+	[dic setObject:LONG2STR((long)_red) forKey:COLOR_RED];
+	
+	[dic setObject:LONG2STR((long)_green) forKey:COLOR_GREEN];
+	
+	[dic setObject:LONG2STR((long)_blue) forKey:COLOR_BLUE];
+	
+	return dic;
+}
+
+- (id)objectFromDic:(NSDictionary*)dic {
+	
+	_strName = [dic objectForKey:COLOR_NAME];
+	
+	_red = [[dic objectForKey:COLOR_NAME] integerValue];
+	
+	_green = [[dic objectForKey:COLOR_NAME] integerValue];
+	
+	_blue = [[dic objectForKey:COLOR_NAME] integerValue];
 	
 	return self;
 }

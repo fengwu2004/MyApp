@@ -22,6 +22,7 @@
 		CE9C0B421BF4410B00AA90B8 /* GCColorDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C0B411BF4410B00AA90B8 /* GCColorDefine.m */; };
 		CE9C0B451BF4416B00AA90B8 /* GCColorDataMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C0B441BF4416B00AA90B8 /* GCColorDataMgr.m */; };
 		CE9C0B481BF466C000AA90B8 /* GCStoreSystemMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C0B471BF466C000AA90B8 /* GCStoreSystemMgr.m */; };
+		CE9C0B4A1BF483E900AA90B8 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9C0B491BF483E900AA90B8 /* libsqlite3.0.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		CE9C0B441BF4416B00AA90B8 /* GCColorDataMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCColorDataMgr.m; sourceTree = "<group>"; };
 		CE9C0B461BF466C000AA90B8 /* GCStoreSystemMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCStoreSystemMgr.h; sourceTree = "<group>"; };
 		CE9C0B471BF466C000AA90B8 /* GCStoreSystemMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCStoreSystemMgr.m; sourceTree = "<group>"; };
+		CE9C0B491BF483E900AA90B8 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE9C0B4A1BF483E900AA90B8 /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +69,7 @@
 		CE9C0AE11BF432EE00AA90B8 = {
 			isa = PBXGroup;
 			children = (
+				CE9C0B491BF483E900AA90B8 /* libsqlite3.0.tbd */,
 				CE9C0AEC1BF432EE00AA90B8 /* MyApp */,
 				CE9C0AEB1BF432EE00AA90B8 /* Products */,
 			);

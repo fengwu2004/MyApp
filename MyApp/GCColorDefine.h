@@ -33,4 +33,8 @@ typedef NS_ENUM(NSUInteger, GCColorEditType) {
 @property (nonatomic, assign) NSInteger green;
 @property (nonatomic, assign) NSInteger blue;
 
+- (NSDictionary*)dicFromObject;
+
+- (id)objectFromDic:(NSDictionary*)dic;
+
 @end

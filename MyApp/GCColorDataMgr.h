@@ -23,6 +23,6 @@
 
 - (void)setColorData:(NSObject*)obj;
 
-- (NSObject*)getColorData;
+- (NSArray*)getColorData;
 
 @end

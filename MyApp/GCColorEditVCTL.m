@@ -120,6 +120,8 @@
 
 - (void)saveColor {
 	
+	_colorData.strName = _ibColorName.text;
+	
 	[[GCColorDataMgr sharedInstance] saveColor:_colorData new:_isCreateNew];
 }
 
