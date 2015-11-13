@@ -76,7 +76,7 @@ static GCColorDataMgr* _instance;
 		
 		GCColorData* data2 = (GCColorData*)obj2;
 		
-		if (data1.createTime > data2.createTime) {
+		if (data1.createTime <= data2.createTime) {
 			
 			return (NSComparisonResult)NSOrderedDescending;
 		}

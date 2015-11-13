@@ -153,6 +153,18 @@
 	
 	[[GCColorDataMgr sharedInstance] addOrReplace:_colorData];
 	
+	for (UIViewController *obj in self.navigationController.viewControllers) {
+		
+		if ([obj isKindOfClass:[GCColorListVCTL class]]) {
+			
+			GCColorListVCTL* vctl = (GCColorListVCTL*)obj;
+			
+			[self.navigationController popToViewController:vctl animated:YES];
+			
+			return;
+		}
+	}
+	
 	GCColorListVCTL *vctl = [[GCColorListVCTL alloc] init];
 	
 	[self.navigationController pushViewController:vctl animated:YES];
