@@ -26,8 +26,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jul-b7-7sR">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="358"/>
                     <subviews>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6N3-uu-dM9">
-                            <rect key="frame" x="140" y="80" width="320" height="30"/>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="这里是颜色的名字，点击修改" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6N3-uu-dM9">
+                            <rect key="frame" x="60" y="80" width="480" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="words" enablesReturnKeyAutomatically="YES"/>
                             <connections>
@@ -38,7 +38,7 @@
                     </subviews>
                     <color key="backgroundColor" red="1" green="0.3052618279" blue="0.64045235410000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="6N3-uu-dM9" secondAttribute="trailing" constant="140" id="t4K-WI-OHj"/>
+                        <constraint firstAttribute="trailing" secondItem="6N3-uu-dM9" secondAttribute="trailing" constant="60" id="t4K-WI-OHj"/>
                     </constraints>
                 </view>
                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="tJR-pB-1GT">
@@ -110,7 +110,7 @@
                 <constraint firstItem="tJR-pB-1GT" firstAttribute="centerY" secondItem="0wK-jU-nRO" secondAttribute="centerY" id="33c-WG-u1b"/>
                 <constraint firstAttribute="trailing" secondItem="jul-b7-7sR" secondAttribute="trailing" id="3aV-MX-lvG"/>
                 <constraint firstItem="6N3-uu-dM9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="80" id="5gI-R5-HO5"/>
-                <constraint firstItem="6N3-uu-dM9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="140" id="6Hy-rO-YTj"/>
+                <constraint firstItem="6N3-uu-dM9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="60" id="6Hy-rO-YTj"/>
                 <constraint firstItem="tJR-pB-1GT" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="6iJ-fB-RzG"/>
                 <constraint firstItem="tJR-pB-1GT" firstAttribute="top" secondItem="jul-b7-7sR" secondAttribute="bottom" constant="63" id="AJL-LR-MeX"/>
                 <constraint firstItem="6N3-uu-dM9" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="DTt-uI-DfT"/>

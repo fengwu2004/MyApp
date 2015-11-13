@@ -25,11 +25,11 @@
 	
 	[_ibLabelColorRed setText:strRed];
 	
-	NSString* strGreen = [[NSString alloc] initWithFormat:@"R: %d", (int)colorData.green];
+	NSString* strGreen = [[NSString alloc] initWithFormat:@"G: %d", (int)colorData.green];
 	
 	[_ibLabelColorGreen setText:strGreen];
 	
-	NSString* strBlue = [[NSString alloc] initWithFormat:@"R: %d", (int)colorData.blue];
+	NSString* strBlue = [[NSString alloc] initWithFormat:@"B: %d", (int)colorData.blue];
 	
 	[_ibLabelColorBlue setText:strBlue];
 	

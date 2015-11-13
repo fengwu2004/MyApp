@@ -14,7 +14,7 @@
 @interface GCColorEditVCTL()<UITextFieldDelegate>
 
 @property (nonatomic, retain)GCColorData* colorData;
-
+@property (nonatomic, assign)BOOL isCreateNew;
 
 @end
 
@@ -59,12 +59,18 @@
 	if (data) {
 		
 		_colorData = [data copy];
+		
+		[_ibColorName setText:_colorData.strName];
+		
+		_isCreateNew = NO;
 	}
 	else {
 		
 		_colorData = [[GCColorDataMgr sharedInstance] createColor];
 		
 		_colorId = _colorData.colorId;
+		
+		_isCreateNew = YES;
 	}
 }
 
@@ -72,7 +78,10 @@
 	
 	[self refreshData];
 	
-	[_ibColorName setText:_colorData.strName];
+	if (!_isCreateNew) {
+		
+		[_ibColorName setText:_colorData.strName];
+	}
 	
 	UIColor *color = [UIColor colorWithRed:_colorData.red/255.0 green:_colorData.green/255.0 blue:_colorData.blue/255.0 alpha:1];
 	
